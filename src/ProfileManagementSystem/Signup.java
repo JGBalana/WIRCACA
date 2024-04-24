@@ -189,7 +189,7 @@ public class Signup extends javax.swing.JFrame {
         hide1.setVisible(false);
         Password1.setEchoChar((char)0);
     }//GEN-LAST:event_hide1MousePressed
-//hi
+
     private void hide1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide1MouseReleased
         open1.setVisible(false);
         hide1.setVisible(true);
