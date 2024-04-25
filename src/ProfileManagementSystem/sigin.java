@@ -84,6 +84,7 @@ public class sigin extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(127, 21, 20));
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(null);
 
         hide1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/hide.png"))); // NOI18N
