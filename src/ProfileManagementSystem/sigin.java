@@ -35,7 +35,7 @@ public class sigin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel()
-        {
+        {//meron oh
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -84,7 +84,6 @@ public class sigin extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(127, 21, 20));
-        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(null);
 
         hide1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/hide.png"))); // NOI18N
@@ -113,7 +112,7 @@ public class sigin extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 233, 208));
         jLabel6.setText("Password");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(60, 350, 130, 28);
+        jLabel6.setBounds(60, 350, 130, 29);
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 233, 208));
@@ -135,12 +134,12 @@ public class sigin extends javax.swing.JFrame {
         SIbutton.setBounds(60, 560, 470, 50);
 
         jTextField4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jTextField4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextField4.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
         jPanel2.add(jTextField4);
         jTextField4.setBounds(60, 270, 470, 50);
 
         Password1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        Password1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Password1.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
         jPanel2.add(Password1);
         Password1.setBounds(60, 380, 470, 50);
 
