@@ -221,14 +221,14 @@ public class Signup extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void hide2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide2MousePressed
-        open1.setVisible(true);
-        hide1.setVisible(false);
+        open2.setVisible(true);
+        hide2.setVisible(false);
         Password2.setEchoChar((char)0);
     }//GEN-LAST:event_hide2MousePressed
 
     private void hide2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide2MouseReleased
-        open1.setVisible(false);
-        hide1.setVisible(true);
+        open2.setVisible(false);
+        hide2.setVisible(true);
         Password2.setEchoChar('*');
     }//GEN-LAST:event_hide2MouseReleased
 
