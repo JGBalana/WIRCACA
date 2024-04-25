@@ -5,10 +5,13 @@
  */
 package ProfileManagementSystem;
 
+import java.awt.Color;
+import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Dimension;
+import javax.swing.BorderFactory;
 import java.awt.RenderingHints;
+
 /**
  *
  * @author geral
@@ -35,20 +38,30 @@ public class Signup extends javax.swing.JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                Dimension arcs = new Dimension(15, 15);
-                int width = getWidth();
-                int height = getHeight();
-                Graphics2D graphics = (Graphics2D) g;
-                graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-                // Draw the rounded opaque panel with borders.
-                graphics.setColor(getBackground());
-                // Fill the rounded rectangle to cover the entire panel
-                graphics.fillRoundRect(0, 0, width, height, arcs.width, arcs.height);
-                graphics.setColor(getForeground());
-                graphics.drawRoundRect(0, 0, width - 1, height - 1, arcs.width, arcs.height); // Paint border
+                // Calculate the center position of the panel
+                int centerX = getWidth() / 2 ;
+                int centerY = (int) (getHeight() / 3.5); // Casting to double before division
+
+                // Calculate the diagonal distance from the center to the corner
+                double diagonalLength = Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2));
+
+                // Adjust the start and end colors here
+                Color color1 = Color.decode("#7b1514"); // Example start color
+                Color color2 = Color.decode("#FFFFFF"); // Example end color
+
+                // Calculate the start and end positions for the gradient based on the center
+                GradientPaint gradient = new GradientPaint(
+                    centerX, centerY, color1, // Start position and color
+                    (float) (centerX + diagonalLength / 2), (float) (centerY + diagonalLength / 2), color2); // End position and color
+
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setPaint(gradient);
+                g2d.fillRect(0, 0, getWidth(), getHeight()); // Fill the entire panel with gradient
             }
-        };
+
+        }
+        ;
         jLabel8 = new javax.swing.JLabel();
         hide1 = new javax.swing.JLabel();
         open1 = new javax.swing.JLabel();
@@ -65,6 +78,7 @@ public class Signup extends javax.swing.JFrame {
         ;
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -72,10 +86,8 @@ public class Signup extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBounds(10, 10, 100, 30);
-        jPanel1.setOpaque(false);
         jPanel2.setBackground(new java.awt.Color(127, 21, 20));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(null);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/UPH Header -2 (1).png"))); // NOI18N
@@ -160,16 +172,22 @@ public class Signup extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton2);
-        jButton2.setBounds(60, 580, 470, 50);
+        jButton2.setBounds(60, 570, 470, 50);
 
-        jButton1.setText("Back");
+        jButton1.setText("Sign In");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(450, 630, 59, 25);
+        jButton1.setBounds(340, 630, 70, 23);
+
+        jLabel10.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Have an account?");
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(180, 630, 160, 20);
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 590, 680));
 
@@ -263,6 +281,7 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel hide2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -274,4 +293,32 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel open1;
     private javax.swing.JLabel open2;
     // End of variables declaration//GEN-END:variables
+private void setGradientColor(javax.swing.JPanel panel, String hexColor1, String hexColor2) {
+    Color color1 = Color.decode(hexColor1);
+    Color color2 = Color.decode(hexColor2);
+   
+    // Override the JPanel's paintComponent method to draw the gradient
+    panel = new javax.swing.JPanel() {
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+           
+            // Calculate the center position of the panel
+            int centerX = getWidth() / 2;
+            int centerY = getHeight() / 2;
+           
+            // Calculate the diagonal distance from the center to the corner
+            double diagonalLength = Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2));
+           
+            // Calculate the start and end positions for the gradient based on the center
+            GradientPaint gradient = new GradientPaint(
+                    centerX, centerY, color1, // Start position and color
+                    (float) (centerX + diagonalLength / 2), (float) (centerY + diagonalLength / 2), color2); // End position and color
+           
+            Graphics2D g2d = (Graphics2D) g;
+            g2d.setPaint(gradient);
+            g2d.fillRect(0, 0, getWidth(), getHeight()); // Fill the entire panel with gradient
+        }
+    };
+}
 }
