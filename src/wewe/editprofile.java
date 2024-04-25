@@ -1,20 +1,19 @@
-package wewe;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package wewe;
 
 /**
  *
  * @author geral
  */
-public class Profile extends javax.swing.JFrame {
+public class editprofile extends javax.swing.JFrame {
 
     /**
-     * Creates new form Profile
+     * Creates new form editprofile
      */
-    public Profile() {
+    public editprofile() {
         initComponents();
     }
 
@@ -60,9 +59,10 @@ public class Profile extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -144,7 +144,7 @@ public class Profile extends javax.swing.JFrame {
         jButton6.setText("Edit Details");
         barforedit.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 18, -1, -1));
 
-        jPanel1.add(barforedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, 520, 60));
+        jPanel1.add(barforedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 240, 520, 60));
 
         leftside.setBackground(new java.awt.Color(237, 233, 233));
         leftside.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -171,6 +171,16 @@ public class Profile extends javax.swing.JFrame {
 
         jPanel1.add(leftside, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 170, 880));
 
+        jLabel4.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 36)); // NOI18N
+        jLabel4.setText("STUDENT INFORMATION");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, -1, -1));
+
+        jButton5.setBackground(new java.awt.Color(0, 0, 0));
+        jButton5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Change Profile Picture");
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -183,7 +193,6 @@ public class Profile extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void schoolfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolfieldActionPerformed
@@ -211,20 +220,20 @@ public class Profile extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editprofile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editprofile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editprofile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editprofile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Profile().setVisible(true);
+                new editprofile().setVisible(true);
             }
         });
     }
@@ -243,6 +252,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -253,6 +263,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

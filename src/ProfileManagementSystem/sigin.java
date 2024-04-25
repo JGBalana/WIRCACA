@@ -134,12 +134,10 @@ public class sigin extends javax.swing.JFrame {
         SIbutton.setBounds(60, 560, 470, 50);
 
         jTextField4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jTextField4.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
         jPanel2.add(jTextField4);
         jTextField4.setBounds(60, 270, 470, 50);
 
         Password1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        Password1.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
         jPanel2.add(Password1);
         Password1.setBounds(60, 380, 470, 50);
 

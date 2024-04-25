@@ -12,6 +12,14 @@ import java.awt.Graphics2D;
 import javax.swing.BorderFactory;
 import java.awt.RenderingHints;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 /**
  *
  * @author geral
