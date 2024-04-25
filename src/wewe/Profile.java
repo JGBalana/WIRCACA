@@ -71,7 +71,7 @@ public class Profile extends javax.swing.JFrame {
         redheader.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(redheader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 30));
         jPanel1.add(namefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 280, 40));
-        jPanel1.add(strandfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 500, 280, 40));
+        jPanel1.add(strandfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, 280, 40));
 
         schoolfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,12 +81,12 @@ public class Profile extends javax.swing.JFrame {
         jPanel1.add(schoolfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 550, 280, 40));
         jPanel1.add(genderfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 430, 280, 40));
         jPanel1.add(birthdayfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 490, 280, 40));
-        jPanel1.add(agefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 550, 280, 40));
+        jPanel1.add(agefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 550, 290, 40));
         jPanel1.add(addressfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 650, 280, 40));
         jPanel1.add(residencefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 710, 280, 40));
         jPanel1.add(contactfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 760, 280, 40));
         jPanel1.add(guardianfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 650, 280, 40));
-        jPanel1.add(emergencycontactfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 700, 240, 40));
+        jPanel1.add(emergencycontactfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 700, 280, 40));
 
         NAME.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         NAME.setText("NAME:");

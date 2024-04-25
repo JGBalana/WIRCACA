@@ -223,6 +223,48 @@ public class Signup extends javax.swing.JFrame {
     }//GEN-LAST:event_hide1MouseReleased
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    
+                String username, password, confirmation, query;
+        String SUrl, SUser, SPass;
+        SUrl = "jdbc:MySQL://localhost:3306/users";
+        SUser = "root";
+        SPass = "";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(SUrl, SUser, SPass);
+            Statement st = con.createStatement();
+            if("".equals(jTextField4.getText())){
+                JOptionPane.showMessageDialog(new JFrame(), "Username is required", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }else if("".equals(Password1.getText())){
+                JOptionPane.showMessageDialog(new JFrame(), "Password is required", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                
+          
+            }else {
+            username = jTextField4.getText(); 
+            password = Password1.getText();
+            confirmation = Password2.getText();
+            if (! password.equals(confirmation)) {
+                 JOptionPane.showMessageDialog(new JFrame(), "Password does not match", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } 
+            
+            System.out.println(Password1);
+            
+            query = "INSERT INTO accounts(username, password)"+
+                    "VALUES('"+jTextField4+"', "+Password1+"')";
+            
+            st.execute(query);
+            jTextField4.setText("");
+            Password1.setText("");
+            Password2.setText("");
+            showMessageDialog(null, "New account has been created successfully!");
+            }
+        }catch(Exception e){
+           System.out.println("Error!" + e.getMessage()); 
+        }
+             
     Homepagee v = new Homepagee();
     v.setVisible (true);
     this.dispose();
