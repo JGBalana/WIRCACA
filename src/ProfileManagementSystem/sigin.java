@@ -112,7 +112,7 @@ public class sigin extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 233, 208));
         jLabel6.setText("Password");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(60, 350, 130, 29);
+        jLabel6.setBounds(60, 350, 130, 28);
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 233, 208));
