@@ -78,13 +78,13 @@ public class Signup extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField()
+        txtUsername = new javax.swing.JTextField()
         ;
         Password1 = new javax.swing.JPasswordField()
         ;
         Password2 = new javax.swing.JPasswordField()
         ;
-        jButton2 = new javax.swing.JButton();
+        btnSignUp = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -146,18 +146,18 @@ public class Signup extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 233, 208));
         jLabel9.setText("Password");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(60, 340, 130, 28);
+        jLabel9.setBounds(60, 340, 130, 29);
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 233, 208));
         jLabel6.setText("Confirm Password");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(60, 440, 200, 28);
+        jLabel6.setBounds(60, 440, 200, 29);
 
-        jTextField4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jTextField4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField4);
-        jTextField4.setBounds(60, 270, 470, 50);
+        txtUsername.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        txtUsername.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(txtUsername);
+        txtUsername.setBounds(60, 270, 470, 50);
 
         Password1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         Password1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -169,18 +169,23 @@ public class Signup extends javax.swing.JFrame {
         jPanel2.add(Password2);
         Password2.setBounds(60, 470, 470, 50);
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Sign Up");
-        jButton2.setBorder(null);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSignUp.setBackground(new java.awt.Color(0, 0, 0));
+        btnSignUp.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnSignUp.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignUp.setText("Sign Up");
+        btnSignUp.setBorder(null);
+        btnSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnSignUpMouseClicked(evt);
             }
         });
-        jPanel2.add(jButton2);
-        jButton2.setBounds(60, 570, 470, 50);
+        btnSignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignUpActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSignUp);
+        btnSignUp.setBounds(60, 570, 470, 50);
 
         jButton1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 14)); // NOI18N
         jButton1.setText("Sign In");
@@ -223,53 +228,10 @@ public class Signup extends javax.swing.JFrame {
         Password1.setEchoChar('*');
     }//GEN-LAST:event_hide1MouseReleased
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void btnSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignUpMouseClicked
     
-                String username, password, confirmation, query;
-        String SUrl, SUser, SPass;
-        SUrl = "jdbc:MySQL://localhost:3306/users";
-        SUser = "root";
-        SPass = "";
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(SUrl, SUser, SPass);
-            Statement st = con.createStatement();
-            if("".equals(jTextField4.getText())){
-                JOptionPane.showMessageDialog(new JFrame(), "Username is required", "Error",
-                        JOptionPane.ERROR_MESSAGE);
-            }else if("".equals(Password1.getText())){
-                JOptionPane.showMessageDialog(new JFrame(), "Password is required", "Error",
-                        JOptionPane.ERROR_MESSAGE);
                 
-          
-            }else {
-            username = jTextField4.getText(); 
-            password = Password1.getText();
-            confirmation = Password2.getText();
-            if (! password.equals(confirmation)) {
-                 JOptionPane.showMessageDialog(new JFrame(), "Password does not match", "Error",
-                        JOptionPane.ERROR_MESSAGE);
-            } 
-            
-            System.out.println(Password1);
-            
-            query = "INSERT INTO accounts(username, password)"+
-                    "VALUES('"+jTextField4+"', "+Password1+"')";
-            
-            st.execute(query);
-            jTextField4.setText("");
-            Password1.setText("");
-            Password2.setText("");
-            showMessageDialog(null, "New account has been created successfully!");
-            }
-        }catch(Exception e){
-           System.out.println("Error!" + e.getMessage()); 
-        }
-             
-    Homepagee v = new Homepagee();
-    v.setVisible (true);
-    this.dispose();
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_btnSignUpMouseClicked
 
     private void hide2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide2MousePressed
         open2.setVisible(true);
@@ -288,6 +250,44 @@ public class Signup extends javax.swing.JFrame {
     x.setVisible (true);
     this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+        try {
+            String username = txtUsername.getText();
+            String password = Password1.getText();
+            String confirmPassword = Password2.getText();
+
+            if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                showMessageDialog(null, "Please fill in all fields");
+            } else if (!password.equals(confirmPassword)) {
+                showMessageDialog(null, "Passwords do not match");
+            } else {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentManagement", "root", "");
+                Statement stmt = con.createStatement();
+                String query = "SELECT * FROM accounts WHERE username = '" + username + "'";
+                ResultSet rs = stmt.executeQuery(query);
+                if (rs.next()) {
+                    showMessageDialog(null, "Username already exists");
+                } else {
+                    String insertQuery = "INSERT INTO accounts (username, password) VALUES ('" + username + "', '" + password + "')";
+                    stmt.executeUpdate(insertQuery);
+                    showMessageDialog(null, "Account created successfully");
+                    txtUsername.setText("");
+                    Password1.setText("");
+                    Password2.setText("");
+                    
+                    Homepagee home = new Homepagee ();
+                    home.setVisible(true);
+                    this.dispose();
+                }
+            }
+        } catch (Exception e) {
+            showMessageDialog(null, e);
+        }
+             
+
+    }//GEN-LAST:event_btnSignUpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,10 +328,10 @@ public class Signup extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Password1;
     private javax.swing.JPasswordField Password2;
+    private javax.swing.JButton btnSignUp;
     private javax.swing.JLabel hide1;
     private javax.swing.JLabel hide2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
@@ -340,9 +340,9 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel open1;
     private javax.swing.JLabel open2;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 private void setGradientColor(javax.swing.JPanel panel, String hexColor1, String hexColor2) {
     Color color1 = Color.decode(hexColor1);
