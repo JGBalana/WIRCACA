@@ -11,6 +11,15 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.BorderFactory;
 import java.awt.RenderingHints;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 /**
  *
  * @author geral
@@ -68,9 +77,9 @@ public class sigin extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         SIbutton = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField()
+        txtUsername = new javax.swing.JTextField()
         ;
-        Password1 = new javax.swing.JPasswordField()
+        txtPassword = new javax.swing.JPasswordField()
         ;
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -131,16 +140,21 @@ public class sigin extends javax.swing.JFrame {
                 SIbuttonMouseClicked(evt);
             }
         });
+        SIbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SIbuttonActionPerformed(evt);
+            }
+        });
         jPanel2.add(SIbutton);
         SIbutton.setBounds(60, 560, 470, 50);
 
-        jTextField4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jPanel2.add(jTextField4);
-        jTextField4.setBounds(60, 270, 470, 50);
+        txtUsername.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jPanel2.add(txtUsername);
+        txtUsername.setBounds(60, 270, 470, 50);
 
-        Password1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jPanel2.add(Password1);
-        Password1.setBounds(60, 380, 470, 50);
+        txtPassword.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jPanel2.add(txtPassword);
+        txtPassword.setBounds(60, 380, 470, 50);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/UPH Header -2 (1).png"))); // NOI18N
         jPanel2.add(jLabel8);
@@ -177,13 +191,13 @@ public class sigin extends javax.swing.JFrame {
     private void hide1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide1MousePressed
         open1.setVisible(true);
         hide1.setVisible(false);
-        Password1.setEchoChar((char)0);
+        txtPassword.setEchoChar((char)0);
     }//GEN-LAST:event_hide1MousePressed
 
     private void hide1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide1MouseReleased
         open1.setVisible(false);
         hide1.setVisible(true);
-        Password1.setEchoChar('*');
+        txtPassword.setEchoChar('*');
     }//GEN-LAST:event_hide1MouseReleased
 
     private void open1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_open1MousePressed
@@ -201,6 +215,42 @@ public class sigin extends javax.swing.JFrame {
     x.setVisible (true);
     this.dispose();
     }//GEN-LAST:event_signupMouseClicked
+
+    private void SIbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIbuttonActionPerformed
+        try {
+            // sign-in and validate in database
+            String username = txtUsername.getText();
+            String password = txtPassword.getText();
+            if (username.isEmpty() && password.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
+            } else {
+                // connect to mysql database and check if username and password is correct from database records
+                // if correct, proceed to homepage
+                // else, prompt user that username or password is incorrect
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentManagement", "root", "");
+                Statement stmt = con.createStatement();
+                String query = "SELECT * FROM accounts WHERE username = '" + username + "'";
+                ResultSet rs = stmt.executeQuery(query);
+                if (rs.next()) {
+                    if (rs.getString("password").equals(password)) {
+                        javax.swing.JOptionPane.showMessageDialog(null, "Welcome " + rs.getString("username"));
+                        Homepagee x = new Homepagee();
+                        x.setVisible(true);
+                        this.dispose();
+                    } else {
+                        javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
+                    }
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
+                }
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            // if there is an error
+            // prompt user that there is an error
+            javax.swing.JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_SIbuttonActionPerformed
         
     /**
      * @param args the command line arguments
@@ -238,7 +288,6 @@ public class sigin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField Password1;
     private javax.swing.JButton SIbutton;
     private javax.swing.JLabel hide1;
     private javax.swing.JLabel jLabel2;
@@ -248,9 +297,10 @@ public class sigin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel open1;
     private javax.swing.JButton signup;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
        private void setGradientColor(javax.swing.JPanel panel, String hexColor1, String hexColor2) {
     Color color1 = Color.decode(hexColor1);
