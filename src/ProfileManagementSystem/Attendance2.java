@@ -105,7 +105,7 @@ public class Attendance2 extends javax.swing.JFrame {
         jLabel7.setText("Student Schedule");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 70, 250, 60));
 
-        jPanel2.setBackground(new java.awt.Color(232, 232, 232));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\profilee-removebg-preview (1).png")); // NOI18N
