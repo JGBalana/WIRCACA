@@ -205,7 +205,7 @@ public class Profile extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\profile red (1).png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\profileredbutton (1).png")); // NOI18N
         jButton2.setBorder(null);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -152,13 +152,13 @@ public class Attendancee1 extends javax.swing.JFrame {
         });
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 80, -1));
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\attendance-removebg-preview (1).png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\atred (1).png")); // NOI18N
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 100, -1));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 80, -1));
 
         jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\FAQs-removebg-preview (1).png")); // NOI18N
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -192,7 +192,8 @@ public class FAQs extends javax.swing.JFrame {
         });
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 100, -1));
 
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\FAQs-removebg-preview (1).png")); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\FAQs red (1).png")); // NOI18N
+        jButton6.setBorder(null);
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton6MouseClicked(evt);

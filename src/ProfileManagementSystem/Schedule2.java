@@ -9,12 +9,12 @@ package ProfileManagementSystem;
  *
  * @author geral
  */
-public class Schedule extends javax.swing.JFrame {
+public class Schedule2 extends javax.swing.JFrame {
 
     /**
-     * Creates new form Schedule
+     * Creates new form Schedule2
      */
-    public Schedule() {
+    public Schedule2() {
         initComponents();
     }
 
@@ -87,11 +87,6 @@ public class Schedule extends javax.swing.JFrame {
 
         jButton8.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         jButton8.setText("Second");
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
-            }
-        });
         jPanel7.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 19, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
@@ -249,12 +244,6 @@ public class Schedule extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton10MouseClicked
 
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-    Schedule2 v = new Schedule2();
-    v.setVisible(true);
-    this.dispose();
-    }//GEN-LAST:event_jButton8MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -272,20 +261,20 @@ public class Schedule extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Schedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Schedule2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Schedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Schedule2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Schedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Schedule2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Schedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Schedule2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Schedule().setVisible(true);
+                new Schedule2().setVisible(true);
             }
         });
     }
