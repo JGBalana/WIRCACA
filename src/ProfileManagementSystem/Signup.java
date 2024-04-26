@@ -182,6 +182,7 @@ public class Signup extends javax.swing.JFrame {
         jPanel2.add(jButton2);
         jButton2.setBounds(60, 570, 470, 50);
 
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 14)); // NOI18N
         jButton1.setText("Sign In");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -189,7 +190,7 @@ public class Signup extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(340, 630, 70, 23);
+        jButton1.setBounds(340, 630, 70, 20);
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));

@@ -109,13 +109,13 @@ public class sigin extends javax.swing.JFrame {
         jPanel2.add(open1);
         open1.setBounds(480, 390, 40, 30);
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 233, 208));
         jLabel6.setText("Password");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(60, 350, 130, 28);
+        jLabel6.setBounds(60, 350, 130, 20);
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 233, 208));
         jLabel7.setText("Username");
         jPanel2.add(jLabel7);
@@ -152,8 +152,7 @@ public class sigin extends javax.swing.JFrame {
         jPanel2.add(jLabel9);
         jLabel9.setBounds(150, 620, 230, 20);
 
-        signup.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        signup.setForeground(new java.awt.Color(123, 21, 20));
+        signup.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 14)); // NOI18N
         signup.setText("Sign Up");
         signup.setBorder(null);
         signup.addMouseListener(new java.awt.event.MouseAdapter() {
