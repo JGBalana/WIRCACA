@@ -96,6 +96,11 @@ public class Schedule2 extends javax.swing.JFrame {
 
         jButton9.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         jButton9.setText("First");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
         jPanel7.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(721, 19, -1, -1));
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 890, 60));
@@ -243,6 +248,12 @@ public class Schedule2 extends javax.swing.JFrame {
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        Schedule v = new Schedule();
+        v.setVisible (true);
+        this.dispose();
+    }//GEN-LAST:event_jButton9MouseClicked
 
     /**
      * @param args the command line arguments

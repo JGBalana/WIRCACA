@@ -228,7 +228,7 @@ public class sigin extends javax.swing.JFrame {
                 // if correct, proceed to homepage
                 // else, prompt user that username or password is incorrect
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentManagement", "root", "");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/profile_management", "root", "caching_sha2_password");
                 Statement stmt = con.createStatement();
                 String query = "SELECT * FROM accounts WHERE username = '" + username + "'";
                 ResultSet rs = stmt.executeQuery(query);
