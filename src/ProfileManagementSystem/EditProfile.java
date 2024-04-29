@@ -31,14 +31,13 @@ public class EditProfile extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         redbar = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         barforedit = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        Save = new javax.swing.JButton();
         NAME = new javax.swing.JLabel();
         namefield = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -68,6 +67,7 @@ public class EditProfile extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton()
         ;
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -76,9 +76,6 @@ public class EditProfile extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(1500, 900));
         jPanel1.setPreferredSize(new java.awt.Dimension(1500, 900));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\UPH Header -2 (3).png")); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 330, 100));
 
         redbar.setBackground(new java.awt.Color(123, 21, 20));
         redbar.setForeground(new java.awt.Color(123, 21, 20));
@@ -125,20 +122,26 @@ public class EditProfile extends javax.swing.JFrame {
         });
         barforedit.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 110, -1));
 
-        jButton5.setBackground(new java.awt.Color(252, 203, 10));
-        jButton5.setText("Save & View");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Save.setBackground(new java.awt.Color(252, 203, 10));
+        Save.setText("Save & View");
+        Save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                SaveMouseClicked(evt);
             }
         });
-        barforedit.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, 110, -1));
+        barforedit.add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, 110, -1));
 
         jPanel1.add(barforedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 970, 60));
 
         NAME.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         NAME.setText("NAME:");
         jPanel1.add(NAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, -1, -1));
+
+        namefield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namefieldActionPerformed(evt);
+            }
+        });
         jPanel1.add(namefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 280, 40));
 
         jLabel8.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
@@ -247,6 +250,9 @@ public class EditProfile extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\maroon logo.png")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 900));
 
         pack();
@@ -293,15 +299,24 @@ public class EditProfile extends javax.swing.JFrame {
     this.dispose();
     }//GEN-LAST:event_jButton7MouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveMouseClicked
+    String text = namefield.getText();
+    Profile.namefield1.setText(text);
     
-    }//GEN-LAST:event_jButton5MouseClicked
+    Profile v = new Profile();
+        v.setVisible (true);
+        this.dispose();
+    }//GEN-LAST:event_SaveMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         Profile v = new Profile();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void namefieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namefieldActionPerformed
+    
+    }//GEN-LAST:event_namefieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -340,6 +355,7 @@ public class EditProfile extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel NAME;
+    private javax.swing.JButton Save;
     private javax.swing.JTextField addressfield;
     private javax.swing.JTextField agefield;
     private javax.swing.JPanel barforedit;
@@ -352,7 +368,6 @@ public class EditProfile extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -371,7 +386,7 @@ public class EditProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField namefield;
+    public static javax.swing.JTextField namefield;
     private javax.swing.JPanel redbar;
     private javax.swing.JTextField residencefield;
     private javax.swing.JTextField schoolfield;

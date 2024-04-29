@@ -28,12 +28,11 @@ public class Profile extends javax.swing.JFrame {
     private void initComponents() {
 
         redbar = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         barforedit = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         editdetails = new javax.swing.JButton();
-        namefield = new javax.swing.JTextField();
+        namefield1 = new javax.swing.JTextField();
         strandfield = new javax.swing.JTextField();
         schoolfield = new javax.swing.JTextField();
         genderfield = new javax.swing.JTextField();
@@ -63,6 +62,7 @@ public class Profile extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1500, 900));
@@ -85,9 +85,6 @@ public class Profile extends javax.swing.JFrame {
         );
 
         getContentPane().add(redbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1520, 40));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\UPH Header -2 (3).png")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 330, 100));
 
         jButton1.setText("Logout");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -116,8 +113,13 @@ public class Profile extends javax.swing.JFrame {
 
         getContentPane().add(barforedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 970, 60));
 
-        namefield.setEditable(false);
-        getContentPane().add(namefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 280, 40));
+        namefield1.setEditable(false);
+        namefield1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namefield1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(namefield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 280, 40));
 
         strandfield.setEditable(false);
         getContentPane().add(strandfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 280, 40));
@@ -250,6 +252,9 @@ public class Profile extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\maroon logo.png")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -299,6 +304,10 @@ public class Profile extends javax.swing.JFrame {
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton8MouseClicked
+
+    private void namefield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namefield1ActionPerformed
+    
+    }//GEN-LAST:event_namefield1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,7 +375,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField namefield;
+    public static javax.swing.JTextField namefield1;
     private javax.swing.JPanel redbar;
     private javax.swing.JTextField residencefield;
     private javax.swing.JTextField schoolfield;

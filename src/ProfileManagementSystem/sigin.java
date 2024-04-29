@@ -234,7 +234,7 @@ public class sigin extends javax.swing.JFrame {
                 ResultSet rs = stmt.executeQuery(query);
                 if (rs.next()) {
                     if (rs.getString("password").equals(password)) {
-                        javax.swing.JOptionPane.showMessageDialog(null, "Welcome " + rs.getString("username"));
+                        javax.swing.JOptionPane.showMessageDialog(null, "Welcome " + rs.getString("username") + "!" );
                         Homepagee x = new Homepagee();
                         x.setVisible(true);
                         this.dispose();
