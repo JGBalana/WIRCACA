@@ -10,7 +10,7 @@ package ProfileManagementSystem;
  * @author chrys
  */
 public class ADMIN_PAGE extends javax.swing.JFrame {
-
+boolean isPasswordVisible = false;
     /**
      * Creates new form ADMIN_PAGE
      */
@@ -38,9 +38,7 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton5 = new javax.swing.JButton();
+        masteraccpass = new javax.swing.JPasswordField();
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -69,6 +67,7 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1500, 900));
@@ -77,20 +76,22 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\studentdata (1).png")); // NOI18N
         jButton2.setBorder(null);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 80, 70));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, 60));
 
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\dminred (1).png")); // NOI18N
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, 70));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 70));
 
         jButton10.setBackground(new java.awt.Color(204, 204, 204));
         jButton10.setBorder(null);
@@ -133,15 +134,18 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
         jLabel2.setText("Registered Admins");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, 150, 30));
 
-        jTextField1.setText("Name");
+        jTextField1.setEditable(false);
+        jTextField1.setText("admin.access");
 
-        jTextField2.setText("Name");
-
-        jPasswordField1.setText("jPasswordField1");
-
-        jButton5.setText("Reset");
+        masteraccpass.setEditable(false);
+        masteraccpass.setText("1234");
 
         jButton7.setText("View password");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -150,13 +154,9 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
+                .addComponent(masteraccpass, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(262, 262, 262)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -166,9 +166,7 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(masteraccpass, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
@@ -179,10 +177,13 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
         jLabel3.setText("Master Account");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 284, 150, 30));
 
+        jTextField3.setEditable(false);
         jTextField3.setText("Name");
 
+        jTextField4.setEditable(false);
         jTextField4.setText("Name");
 
+        jPasswordField2.setEditable(false);
         jPasswordField2.setText("jPasswordField1");
 
         jButton9.setText("Reset");
@@ -221,10 +222,13 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, -1, -1));
 
+        jTextField5.setEditable(false);
         jTextField5.setText("Name");
 
+        jTextField6.setEditable(false);
         jTextField6.setText("Name");
 
+        jPasswordField3.setEditable(false);
         jPasswordField3.setText("jPasswordField1");
 
         jButton12.setText("Reset");
@@ -273,23 +277,26 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
                 jButton8MouseClicked(evt);
             }
         });
-        jPanel7.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 19, 170, -1));
+        jPanel7.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 170, -1));
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Register an admin in the database");
-        jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 410, -1));
+        jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 410, -1));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 890, 60));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 890, 70));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel1.setText("Admin Page");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, 140, 60));
 
+        jTextField7.setEditable(false);
         jTextField7.setText("Name");
 
+        jTextField8.setEditable(false);
         jTextField8.setText("Name");
 
+        jPasswordField4.setEditable(false);
         jPasswordField4.setText("jPasswordField1");
 
         jButton14.setText("Reset");
@@ -342,16 +349,17 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        Profile v = new Profile();
+        studentdataadmin v = new studentdataadmin();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        Schedule v = new Schedule();
+        ADMIN_PAGE v = new ADMIN_PAGE();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton3MouseClicked
@@ -363,9 +371,7 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        Attendance2 v = new Attendance2();
-        v.setVisible(true);
-        this.dispose();
+    
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
@@ -379,6 +385,18 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+
+    if (isPasswordVisible) {
+        // If password is currently visible, hide it
+        masteraccpass.setEchoChar('*');
+    } else {
+        // If password is currently hidden, show it
+        masteraccpass.setEchoChar((char) 0);
+    }
+    isPasswordVisible = !isPasswordVisible;
+    }//GEN-LAST:event_jButton7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -426,7 +444,6 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -442,18 +459,17 @@ public class ADMIN_PAGE extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JPasswordField jPasswordField3;
     private javax.swing.JPasswordField jPasswordField4;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JPasswordField masteraccpass;
     private javax.swing.JPanel redbar;
     // End of variables declaration//GEN-END:variables
 }

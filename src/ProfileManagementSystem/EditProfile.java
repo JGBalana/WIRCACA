@@ -34,6 +34,13 @@ public class EditProfile extends javax.swing.JFrame {
         redbar = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        leftside = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton()
+        ;
         barforedit = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
@@ -60,14 +67,7 @@ public class EditProfile extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         emergencycontactfield = new javax.swing.JTextField();
         guardianfield = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton()
-        ;
-        jLabel1 = new javax.swing.JLabel();
+        logouphsd = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -104,6 +104,56 @@ public class EditProfile extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 70, -1, -1));
+
+        leftside.setBackground(new java.awt.Color(255, 255, 255));
+        leftside.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SCHED-removebg-preview (1).png")); // NOI18N
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        leftside.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 80, -1));
+
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\attendance-removebg-preview (1).png")); // NOI18N
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        leftside.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 100, -1));
+
+        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\FAQs-removebg-preview (1).png")); // NOI18N
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+        leftside.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, 80, 60));
+
+        jButton8.setBackground(new java.awt.Color(204, 204, 204));
+        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SHSlogo (1).png")); // NOI18N
+        jButton8.setBorder(null);
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+        leftside.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\profile red (1).png")); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        leftside.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, 70));
+
+        jPanel1.add(leftside, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
 
         barforedit.setBackground(new java.awt.Color(153, 0, 0));
         barforedit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -200,58 +250,8 @@ public class EditProfile extends javax.swing.JFrame {
         jPanel1.add(emergencycontactfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 700, 290, 40));
         jPanel1.add(guardianfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 650, 290, 40));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SCHED-removebg-preview (1).png")); // NOI18N
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 80, -1));
-
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\attendance-removebg-preview (1).png")); // NOI18N
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 100, -1));
-
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\FAQs-removebg-preview (1).png")); // NOI18N
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, 80, 60));
-
-        jButton8.setBackground(new java.awt.Color(204, 204, 204));
-        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SHSlogo (1).png")); // NOI18N
-        jButton8.setBorder(null);
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
-
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\profile red (1).png")); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, 70));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\maroon logo.png")); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
+        logouphsd.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\maroon logo.png")); // NOI18N
+        jPanel1.add(logouphsd, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 900));
 
@@ -369,7 +369,6 @@ public class EditProfile extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -383,7 +382,8 @@ public class EditProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel leftside;
+    private javax.swing.JLabel logouphsd;
     public static javax.swing.JTextField namefield;
     private javax.swing.JPanel redbar;
     private javax.swing.JTextField residencefield;

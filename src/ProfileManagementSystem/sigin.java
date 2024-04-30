@@ -223,7 +223,8 @@ public class sigin extends javax.swing.JFrame {
             String password = txtPassword.getText();
             if (username.isEmpty() && password.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
-            } else {
+            }
+            else {
                 // connect to mysql database and check if username and password is correct from database records
                 // if correct, proceed to homepage
                 // else, prompt user that username or password is incorrect
@@ -234,12 +235,21 @@ public class sigin extends javax.swing.JFrame {
                 ResultSet rs = stmt.executeQuery(query);
                 if (rs.next()) {
                     if (rs.getString("password").equals(password)) {
-                        javax.swing.JOptionPane.showMessageDialog(null, "Welcome " + rs.getString("username") + "!" );
-                        Homepagee x = new Homepagee();
-                        x.setVisible(true);
-                        this.dispose();
-                    } else {
-                        javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
+                        
+                    if(username.equals("admin.access")&& password.equals("1234")) {
+                    ADMIN_PAGE x = new ADMIN_PAGE();
+                    x.setVisible(true);
+                    this.dispose();
+                    }
+                    else{ 
+                    javax.swing.JOptionPane.showMessageDialog(null, "Welcome " + rs.getString("username") + "!" );
+                    Homepagee x = new Homepagee();
+                    x.setVisible(true);
+                    this.dispose();
+                    }
+                    } 
+                    else {
+                    javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
                     }
                 } else {
                     javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");

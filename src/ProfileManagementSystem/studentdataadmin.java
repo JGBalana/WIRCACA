@@ -58,12 +58,13 @@ public class studentdataadmin extends javax.swing.JFrame {
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 70, 60));
 
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\adminmanager (1).png")); // NOI18N
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 70));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 60));
 
         jButton10.setBackground(new java.awt.Color(204, 204, 204));
         jButton10.setBorder(null);
@@ -199,13 +200,13 @@ public class studentdataadmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        Profile v = new Profile();
+        studentdataadmin v = new studentdataadmin();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        Schedule v = new Schedule();
+        ADMIN_PAGE v = new ADMIN_PAGE();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton3MouseClicked
