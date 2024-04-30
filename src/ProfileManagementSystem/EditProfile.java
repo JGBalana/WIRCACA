@@ -300,8 +300,6 @@ public class EditProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveMouseClicked
-    String text = namefield.getText();
-    Profile.namefield1.setText(text);
     
     Profile v = new Profile();
         v.setVisible (true);
