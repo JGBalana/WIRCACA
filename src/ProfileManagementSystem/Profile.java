@@ -61,7 +61,6 @@ public class Profile extends javax.swing.JFrame {
         gender = new javax.swing.JLabel();
         gendercombobox = new javax.swing.JComboBox<>();
         bday = new javax.swing.JLabel();
-        birthday = new com.toedter.calendar.JDateChooser();
         schoolidd = new javax.swing.JLabel();
         schoolid = new javax.swing.JTextField();
         schoolg10 = new javax.swing.JLabel();
@@ -92,6 +91,9 @@ public class Profile extends javax.swing.JFrame {
         strand9 = new javax.swing.JLabel();
         papanumber = new javax.swing.JTextField();
         strand10 = new javax.swing.JLabel();
+        lblPhoto = new javax.swing.JLabel();
+        bttnUpload = new javax.swing.JButton();
+        bttnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -124,9 +126,7 @@ public class Profile extends javax.swing.JFrame {
 
         title.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         title.setText("Student Information");
-        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 230, 30));
-
-        uphdlogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\maroon logo.png")); // NOI18N
+        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 260, 30));
         getContentPane().add(uphdlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
 
         barforedit.setBackground(new java.awt.Color(153, 0, 0));
@@ -151,7 +151,6 @@ public class Profile extends javax.swing.JFrame {
         leftside.setBackground(new java.awt.Color(255, 255, 255));
         leftside.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profile.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\profileredbutton (1).png")); // NOI18N
         profile.setBorder(null);
         profile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -160,7 +159,6 @@ public class Profile extends javax.swing.JFrame {
         });
         leftside.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, 70));
 
-        schedule.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SCHED-removebg-preview (1).png")); // NOI18N
         schedule.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 scheduleMouseClicked(evt);
@@ -168,7 +166,6 @@ public class Profile extends javax.swing.JFrame {
         });
         leftside.add(schedule, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 80, -1));
 
-        attendance.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\attendance-removebg-preview (1).png")); // NOI18N
         attendance.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 attendanceMouseClicked(evt);
@@ -176,7 +173,6 @@ public class Profile extends javax.swing.JFrame {
         });
         leftside.add(attendance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 100, -1));
 
-        FAQs.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\FAQs-removebg-preview (1).png")); // NOI18N
         FAQs.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 FAQsMouseClicked(evt);
@@ -185,7 +181,6 @@ public class Profile extends javax.swing.JFrame {
         leftside.add(FAQs, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, 80, 60));
 
         homebutt.setBackground(new java.awt.Color(204, 204, 204));
-        homebutt.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SHSlogo (1).png")); // NOI18N
         homebutt.setBorder(null);
         homebutt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -263,7 +258,7 @@ public class Profile extends javax.swing.JFrame {
 
         age.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         age.setText("AGE:");
-        jPanel1.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 40, -1));
+        jPanel1.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 50, -1));
 
         agefield.setEditable(false);
         jPanel1.add(agefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 50, 40));
@@ -279,9 +274,6 @@ public class Profile extends javax.swing.JFrame {
         bday.setText("BIRTHDAY:");
         jPanel1.add(bday, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 20));
 
-        birthday.setDateFormatString("MM/dd/YYYY");
-        jPanel1.add(birthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 190, 40));
-
         schoolidd.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         schoolidd.setText("SCHOOL ID:");
         jPanel1.add(schoolidd, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 130, 20));
@@ -296,7 +288,7 @@ public class Profile extends javax.swing.JFrame {
 
         schoolg10.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         schoolg10.setText("SCHOOL (G10):");
-        jPanel1.add(schoolg10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 130, 20));
+        jPanel1.add(schoolg10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 150, 20));
 
         schoolg10field.setEditable(false);
         schoolg10field.addActionListener(new java.awt.event.ActionListener() {
@@ -327,7 +319,7 @@ public class Profile extends javax.swing.JFrame {
         zipcodfield.setEditable(false);
         jPanel1.add(zipcodfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 650, 170, 40));
 
-        strand1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        strand1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 16)); // NOI18N
         strand1.setText("CONTACT INFORMATION:");
         jPanel1.add(strand1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
@@ -396,6 +388,21 @@ public class Profile extends javax.swing.JFrame {
         strand10.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         strand10.setText("CONTACT NUMBER:");
         jPanel1.add(strand10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 820, -1, -1));
+
+        lblPhoto.setText("                   2x2");
+        lblPhoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel1.add(lblPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 43, 190, 180));
+
+        bttnUpload.setText("Upload");
+        bttnUpload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnUploadActionPerformed(evt);
+            }
+        });
+        jPanel1.add(bttnUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        bttnSave.setText("Save");
+        jPanel1.add(bttnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -471,6 +478,10 @@ public class Profile extends javax.swing.JFrame {
     
     }//GEN-LAST:event_strandcomboboxActionPerformed
 
+    private void bttnUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnUploadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnUploadActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -516,7 +527,8 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JButton attendance;
     private javax.swing.JPanel barforedit;
     private javax.swing.JLabel bday;
-    private com.toedter.calendar.JDateChooser birthday;
+    private javax.swing.JButton bttnSave;
+    private javax.swing.JButton bttnUpload;
     private javax.swing.JTextField cityfield;
     private javax.swing.JTextField contactinfo;
     private javax.swing.JButton editdetails;
@@ -534,6 +546,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lastname;
     public static javax.swing.JTextField lastnamefield;
+    private javax.swing.JLabel lblPhoto;
     private javax.swing.JPanel leftside;
     private javax.swing.JLabel level;
     private javax.swing.JComboBox<String> levelcombobox;
