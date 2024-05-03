@@ -258,12 +258,12 @@ public class Signup extends javax.swing.JFrame {
             String confirmPassword = Password2.getText();
 
             if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-                showMessageDialog(null, "Please fill in all fields");
+                showMessageDialog(null, "Please fill in all fields.");
             } else if (!password.equals(confirmPassword)) {
-                showMessageDialog(null, "Passwords do not match");
+                showMessageDialog(null, "Passwords do not match.");
             } else {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentManagement", "root", "");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/profile_management", "root", "caching_sha2_password");
                 Statement stmt = con.createStatement();
                 String query = "SELECT * FROM accounts WHERE username = '" + username + "'";
                 ResultSet rs = stmt.executeQuery(query);

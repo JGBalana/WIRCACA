@@ -35,7 +35,6 @@ public class Attendance2 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         redbar = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -45,6 +44,7 @@ public class Attendance2 extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -59,9 +59,7 @@ public class Attendance2 extends javax.swing.JFrame {
                 {"Febuary",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)},
                 {"March",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)},
                 {"April",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)},
-                {"May",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)},
-                {"June",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)},
-                {"July",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)}
+                {"May",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)}
             },
             new String [] {
                 "Month", "Total days", "Present", "Tardiness", "Absences"
@@ -77,7 +75,7 @@ public class Attendance2 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 1020, 130));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 1020, 90));
 
         jPanel7.setBackground(new java.awt.Color(153, 0, 0));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,9 +103,6 @@ public class Attendance2 extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 36)); // NOI18N
         jLabel7.setText("Student Schedule");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 70, 250, 60));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\UPH Header -2 (3).png")); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 330, 100));
 
         redbar.setBackground(new java.awt.Color(123, 21, 20));
         redbar.setForeground(new java.awt.Color(123, 21, 20));
@@ -180,6 +175,9 @@ public class Attendance2 extends javax.swing.JFrame {
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 80, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\maroon logo.png")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 900));
 
