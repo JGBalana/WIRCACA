@@ -63,7 +63,7 @@ public class Profile extends javax.swing.JFrame {
         bday = new javax.swing.JLabel();
         birthday = new com.toedter.calendar.JDateChooser();
         schoolidd = new javax.swing.JLabel();
-        schoolid = new javax.swing.JTextField();
+        schoolidfield = new javax.swing.JTextField();
         number = new javax.swing.JLabel();
         numberfield = new javax.swing.JTextField();
         email = new javax.swing.JLabel();
@@ -287,13 +287,13 @@ public class Profile extends javax.swing.JFrame {
         schoolidd.setText("SCHOOL ID:");
         jPanel1.add(schoolidd, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 130, 20));
 
-        schoolid.setEditable(false);
-        schoolid.addActionListener(new java.awt.event.ActionListener() {
+        schoolidfield.setEditable(false);
+        schoolidfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                schoolidActionPerformed(evt);
+                schoolidfieldActionPerformed(evt);
             }
         });
-        jPanel1.add(schoolid, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 240, 40));
+        jPanel1.add(schoolidfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 240, 40));
 
         number.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         number.setText("CONTACT INFORMATION:");
@@ -464,9 +464,9 @@ public class Profile extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_firstnamefieldActionPerformed
 
-    private void schoolidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolidActionPerformed
+    private void schoolidfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolidfieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_schoolidActionPerformed
+    }//GEN-LAST:event_schoolidfieldActionPerformed
 
     private void strandcomboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strandcomboboxActionPerformed
     
@@ -562,8 +562,8 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JButton schedule;
     private javax.swing.JLabel schoolg10;
     private javax.swing.JTextField schoolg10field;
-    private javax.swing.JTextField schoolid;
     private javax.swing.JLabel schoolidd;
+    private javax.swing.JTextField schoolidfield;
     private javax.swing.JLabel section;
     private javax.swing.JComboBox<String> sectioncombobox;
     private javax.swing.JLabel strand;
