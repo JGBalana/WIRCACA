@@ -40,6 +40,7 @@ public class signup2 extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel(){@Override
             protected void paintComponent(Graphics g) {
@@ -130,12 +131,16 @@ public class signup2 extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 790, 110, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 800, 110, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/UPH Header -2 (1).png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
 
-        jPanel1.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        jLabel10.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Have an account?");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 800, -1, -1));
+
         jPanel1.setMinimumSize(new java.awt.Dimension(912, 1007));
         jPanel1.setPreferredSize(new java.awt.Dimension(912, 1007));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -181,14 +186,14 @@ public class signup2 extends javax.swing.JFrame {
         schoolg10.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         schoolg10.setForeground(new java.awt.Color(255, 255, 255));
         schoolg10.setText("SCHOOL (G10):");
-        jPanel1.add(schoolg10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 130, 20));
+        jPanel1.add(schoolg10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 130, 20));
 
         schoolfield2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 schoolfield2ActionPerformed(evt);
             }
         });
-        jPanel1.add(schoolfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 250, 40));
+        jPanel1.add(schoolfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 240, 40));
 
         birthday.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         birthday.setForeground(new java.awt.Color(255, 255, 255));
@@ -415,6 +420,7 @@ public class signup2 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -442,8 +448,8 @@ public class signup2 extends javax.swing.JFrame {
     private javax.swing.JTextField strandfield2;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtFirstName;
-    private javax.swing.JTextField txtLastName;
-    private javax.swing.JTextField txtMiddleName;
+    public static javax.swing.JTextField txtLastName;
+    public static javax.swing.JTextField txtMiddleName;
     private javax.swing.JTextField userfield;
     private javax.swing.JLabel username;
     private javax.swing.JTextField zipcodefield;
