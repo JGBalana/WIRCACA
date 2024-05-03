@@ -59,9 +59,7 @@ public class Attendance2 extends javax.swing.JFrame {
                 {"Febuary",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)},
                 {"March",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)},
                 {"April",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)},
-                {"May",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)},
-                {"June",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)},
-                {"July",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)}
+                {"May",  new Integer(0),  new Integer(0),  new Integer(0),  new Integer(0)}
             },
             new String [] {
                 "Month", "Total days", "Present", "Tardiness", "Absences"
@@ -77,7 +75,7 @@ public class Attendance2 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 1020, 130));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 1020, 100));
 
         jPanel7.setBackground(new java.awt.Color(153, 0, 0));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

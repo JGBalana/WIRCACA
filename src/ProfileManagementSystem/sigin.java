@@ -211,7 +211,7 @@ public class sigin extends javax.swing.JFrame {
     }//GEN-LAST:event_SIbuttonMouseClicked
 
     private void signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseClicked
-    Signup x = new Signup();
+    signup2 x = new signup2();
     x.setVisible (true);
     this.dispose();
     }//GEN-LAST:event_signupMouseClicked
