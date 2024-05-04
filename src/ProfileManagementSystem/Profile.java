@@ -10,7 +10,7 @@ package ProfileManagementSystem;
  * @author geral
  */
 public class Profile extends javax.swing.JFrame {
-
+//hihello
     /**
      * Creates new form Profile
      */
@@ -61,39 +61,37 @@ public class Profile extends javax.swing.JFrame {
         gender = new javax.swing.JLabel();
         gendercombobox = new javax.swing.JComboBox<>();
         bday = new javax.swing.JLabel();
+        birthday = new com.toedter.calendar.JDateChooser();
         schoolidd = new javax.swing.JLabel();
-        schoolid = new javax.swing.JTextField();
+        schoolidfield = new javax.swing.JTextField();
+        number = new javax.swing.JLabel();
+        numberfield = new javax.swing.JTextField();
+        email = new javax.swing.JLabel();
+        emailfield = new javax.swing.JTextField();
         schoolg10 = new javax.swing.JLabel();
         schoolg10field = new javax.swing.JTextField();
         address = new javax.swing.JLabel();
         addressfield = new javax.swing.JTextField();
         residence = new javax.swing.JLabel();
         residencefield = new javax.swing.JTextField();
-        emergencycontact = new javax.swing.JLabel();
-        zipcodfield = new javax.swing.JTextField();
-        strand1 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        strand2 = new javax.swing.JLabel();
-        contactinfo = new javax.swing.JTextField();
-        emergencycontact1 = new javax.swing.JLabel();
-        provincefield = new javax.swing.JTextField();
-        emergencycontact2 = new javax.swing.JLabel();
+        city = new javax.swing.JLabel();
         cityfield = new javax.swing.JTextField();
-        strand4 = new javax.swing.JLabel();
+        province = new javax.swing.JLabel();
+        provincefield = new javax.swing.JTextField();
+        zipcode = new javax.swing.JLabel();
+        zipcodfield = new javax.swing.JTextField();
+        mothername = new javax.swing.JLabel();
         mamafullname = new javax.swing.JTextField();
-        papafullname = new javax.swing.JTextField();
-        strand5 = new javax.swing.JLabel();
+        mamaocc = new javax.swing.JLabel();
         mamaoccupationfield = new javax.swing.JTextField();
-        strand6 = new javax.swing.JLabel();
-        strand7 = new javax.swing.JLabel();
-        papaoccupationfield = new javax.swing.JTextField();
+        numbermama = new javax.swing.JLabel();
         mamanumber = new javax.swing.JTextField();
-        strand9 = new javax.swing.JLabel();
+        papaname = new javax.swing.JLabel();
+        papafullname = new javax.swing.JTextField();
+        papaoccupation = new javax.swing.JLabel();
+        papaoccupationfield = new javax.swing.JTextField();
+        numberpapa = new javax.swing.JLabel();
         papanumber = new javax.swing.JTextField();
-        strand10 = new javax.swing.JLabel();
-        lblPhoto = new javax.swing.JLabel();
-        bttnUpload = new javax.swing.JButton();
-        bttnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -126,7 +124,9 @@ public class Profile extends javax.swing.JFrame {
 
         title.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         title.setText("Student Information");
-        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 260, 30));
+        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 230, 30));
+
+        uphdlogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\maroon logo.png")); // NOI18N
         getContentPane().add(uphdlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
 
         barforedit.setBackground(new java.awt.Color(153, 0, 0));
@@ -151,6 +151,7 @@ public class Profile extends javax.swing.JFrame {
         leftside.setBackground(new java.awt.Color(255, 255, 255));
         leftside.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        profile.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\profileredbutton (1).png")); // NOI18N
         profile.setBorder(null);
         profile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -159,6 +160,7 @@ public class Profile extends javax.swing.JFrame {
         });
         leftside.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, 70));
 
+        schedule.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SCHED-removebg-preview (1).png")); // NOI18N
         schedule.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 scheduleMouseClicked(evt);
@@ -166,6 +168,7 @@ public class Profile extends javax.swing.JFrame {
         });
         leftside.add(schedule, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 80, -1));
 
+        attendance.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\attendance-removebg-preview (1).png")); // NOI18N
         attendance.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 attendanceMouseClicked(evt);
@@ -173,6 +176,7 @@ public class Profile extends javax.swing.JFrame {
         });
         leftside.add(attendance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 100, -1));
 
+        FAQs.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\FAQs-removebg-preview (1).png")); // NOI18N
         FAQs.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 FAQsMouseClicked(evt);
@@ -181,6 +185,7 @@ public class Profile extends javax.swing.JFrame {
         leftside.add(FAQs, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, 80, 60));
 
         homebutt.setBackground(new java.awt.Color(204, 204, 204));
+        homebutt.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SHSlogo (1).png")); // NOI18N
         homebutt.setBorder(null);
         homebutt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -191,6 +196,7 @@ public class Profile extends javax.swing.JFrame {
 
         getContentPane().add(leftside, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
 
+        //newest pa sa newest
         jPanel1.setMinimumSize(new java.awt.Dimension(912, 1007));
         jPanel1.setPreferredSize(new java.awt.Dimension(912, 1007));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -258,7 +264,7 @@ public class Profile extends javax.swing.JFrame {
 
         age.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         age.setText("AGE:");
-        jPanel1.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 50, -1));
+        jPanel1.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 40, -1));
 
         agefield.setEditable(false);
         jPanel1.add(agefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 50, 40));
@@ -274,21 +280,38 @@ public class Profile extends javax.swing.JFrame {
         bday.setText("BIRTHDAY:");
         jPanel1.add(bday, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 20));
 
+        birthday.setDateFormatString("MM/dd/YYYY");
+        jPanel1.add(birthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 190, 40));
+
         schoolidd.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         schoolidd.setText("SCHOOL ID:");
         jPanel1.add(schoolidd, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 130, 20));
 
-        schoolid.setEditable(false);
-        schoolid.addActionListener(new java.awt.event.ActionListener() {
+        schoolidfield.setEditable(false);
+        schoolidfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                schoolidActionPerformed(evt);
+                schoolidfieldActionPerformed(evt);
             }
         });
-        jPanel1.add(schoolid, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 240, 40));
+        jPanel1.add(schoolidfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 240, 40));
+
+        number.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        number.setText("CONTACT INFORMATION:");
+        jPanel1.add(number, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
+
+        numberfield.setEditable(false);
+        jPanel1.add(numberfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 210, 40));
+
+        email.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        email.setText("EMAIL ADDRESS:");
+        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
+
+        emailfield.setEditable(false);
+        jPanel1.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 310, 40));
 
         schoolg10.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         schoolg10.setText("SCHOOL (G10):");
-        jPanel1.add(schoolg10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 150, 20));
+        jPanel1.add(schoolg10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 130, 20));
 
         schoolg10field.setEditable(false);
         schoolg10field.addActionListener(new java.awt.event.ActionListener() {
@@ -312,97 +335,68 @@ public class Profile extends javax.swing.JFrame {
         residencefield.setEditable(false);
         jPanel1.add(residencefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, 820, 40));
 
-        emergencycontact.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        emergencycontact.setText("ZIP CODE");
-        jPanel1.add(emergencycontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 630, -1, -1));
-
-        zipcodfield.setEditable(false);
-        jPanel1.add(zipcodfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 650, 170, 40));
-
-        strand1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 16)); // NOI18N
-        strand1.setText("CONTACT INFORMATION:");
-        jPanel1.add(strand1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
-
-        email.setEditable(false);
-        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 310, 40));
-
-        strand2.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        strand2.setText("EMAIL ADDRESS:");
-        jPanel1.add(strand2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
-
-        contactinfo.setEditable(false);
-        jPanel1.add(contactinfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 210, 40));
-
-        emergencycontact1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        emergencycontact1.setText("PROVINCE");
-        jPanel1.add(emergencycontact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 630, -1, -1));
-
-        provincefield.setEditable(false);
-        jPanel1.add(provincefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 650, 170, 40));
-
-        emergencycontact2.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        emergencycontact2.setText("CITY");
-        jPanel1.add(emergencycontact2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, -1, -1));
+        city.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        city.setText("CITY");
+        jPanel1.add(city, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, -1, -1));
 
         cityfield.setEditable(false);
         jPanel1.add(cityfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 650, 170, 40));
 
-        strand4.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        strand4.setText("MOTHER'S FULL NAME");
-        jPanel1.add(strand4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 730, -1, -1));
+        province.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        province.setText("PROVINCE");
+        jPanel1.add(province, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 630, -1, -1));
+
+        provincefield.setEditable(false);
+        jPanel1.add(provincefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 650, 170, 40));
+
+        zipcode.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        zipcode.setText("ZIP CODE");
+        jPanel1.add(zipcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 630, -1, -1));
+
+        zipcodfield.setEditable(false);
+        jPanel1.add(zipcodfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 650, 170, 40));
+
+        mothername.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        mothername.setText("MOTHER'S FULL NAME");
+        jPanel1.add(mothername, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 730, -1, -1));
 
         mamafullname.setEditable(false);
         jPanel1.add(mamafullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 750, 320, 40));
 
-        papafullname.setEditable(false);
-        jPanel1.add(papafullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 840, 320, 40));
-
-        strand5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        strand5.setText("FATHER'S FULL NAME");
-        jPanel1.add(strand5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 820, -1, -1));
+        mamaocc.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        mamaocc.setText("OCCUPATION");
+        jPanel1.add(mamaocc, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 730, -1, -1));
 
         mamaoccupationfield.setEditable(false);
         jPanel1.add(mamaoccupationfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 750, 190, 40));
 
-        strand6.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        strand6.setText("OCCUPATION");
-        jPanel1.add(strand6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 730, -1, -1));
-
-        strand7.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        strand7.setText("OCCUPATION");
-        jPanel1.add(strand7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 820, -1, -1));
-
-        papaoccupationfield.setEditable(false);
-        jPanel1.add(papaoccupationfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 840, 190, 40));
+        numbermama.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        numbermama.setText("CONTACT NUMBER:");
+        jPanel1.add(numbermama, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 730, -1, -1));
 
         mamanumber.setEditable(false);
         jPanel1.add(mamanumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 750, 190, 40));
 
-        strand9.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        strand9.setText("CONTACT NUMBER:");
-        jPanel1.add(strand9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 730, -1, -1));
+        papaname.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        papaname.setText("FATHER'S FULL NAME");
+        jPanel1.add(papaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 820, -1, -1));
+
+        papafullname.setEditable(false);
+        jPanel1.add(papafullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 840, 320, 40));
+
+        papaoccupation.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        papaoccupation.setText("OCCUPATION");
+        jPanel1.add(papaoccupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 820, -1, -1));
+
+        papaoccupationfield.setEditable(false);
+        jPanel1.add(papaoccupationfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 840, 190, 40));
+
+        numberpapa.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        numberpapa.setText("CONTACT NUMBER:");
+        jPanel1.add(numberpapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 820, -1, -1));
 
         papanumber.setEditable(false);
         jPanel1.add(papanumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 840, 190, 40));
-
-        strand10.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        strand10.setText("CONTACT NUMBER:");
-        jPanel1.add(strand10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 820, -1, -1));
-
-        lblPhoto.setText("                   2x2");
-        lblPhoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jPanel1.add(lblPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 43, 190, 180));
-
-        bttnUpload.setText("Upload");
-        bttnUpload.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnUploadActionPerformed(evt);
-            }
-        });
-        jPanel1.add(bttnUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
-
-        bttnSave.setText("Save");
-        jPanel1.add(bttnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -470,17 +464,13 @@ public class Profile extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_firstnamefieldActionPerformed
 
-    private void schoolidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolidActionPerformed
+    private void schoolidfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolidfieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_schoolidActionPerformed
+    }//GEN-LAST:event_schoolidfieldActionPerformed
 
     private void strandcomboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strandcomboboxActionPerformed
     
     }//GEN-LAST:event_strandcomboboxActionPerformed
-
-    private void bttnUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnUploadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnUploadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -527,15 +517,12 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JButton attendance;
     private javax.swing.JPanel barforedit;
     private javax.swing.JLabel bday;
-    private javax.swing.JButton bttnSave;
-    private javax.swing.JButton bttnUpload;
+    private com.toedter.calendar.JDateChooser birthday;
+    private javax.swing.JLabel city;
     private javax.swing.JTextField cityfield;
-    private javax.swing.JTextField contactinfo;
     private javax.swing.JButton editdetails;
-    private javax.swing.JTextField email;
-    private javax.swing.JLabel emergencycontact;
-    private javax.swing.JLabel emergencycontact1;
-    private javax.swing.JLabel emergencycontact2;
+    private javax.swing.JLabel email;
+    private javax.swing.JTextField emailfield;
     private javax.swing.JLabel firstname;
     private javax.swing.JTextField firstnamefield;
     private javax.swing.JLabel gender;
@@ -546,20 +533,28 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lastname;
     public static javax.swing.JTextField lastnamefield;
-    private javax.swing.JLabel lblPhoto;
     private javax.swing.JPanel leftside;
     private javax.swing.JLabel level;
     private javax.swing.JComboBox<String> levelcombobox;
     private javax.swing.JButton logout;
     private javax.swing.JTextField mamafullname;
     private javax.swing.JTextField mamanumber;
+    private javax.swing.JLabel mamaocc;
     private javax.swing.JTextField mamaoccupationfield;
     private javax.swing.JLabel middlename;
     public static javax.swing.JTextField middlenamefield;
+    private javax.swing.JLabel mothername;
+    private javax.swing.JLabel number;
+    private javax.swing.JTextField numberfield;
+    private javax.swing.JLabel numbermama;
+    private javax.swing.JLabel numberpapa;
     private javax.swing.JTextField papafullname;
+    private javax.swing.JLabel papaname;
     private javax.swing.JTextField papanumber;
+    private javax.swing.JLabel papaoccupation;
     private javax.swing.JTextField papaoccupationfield;
     private javax.swing.JButton profile;
+    private javax.swing.JLabel province;
     private javax.swing.JTextField provincefield;
     private javax.swing.JPanel redbar;
     private javax.swing.JLabel residence;
@@ -567,22 +562,15 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JButton schedule;
     private javax.swing.JLabel schoolg10;
     private javax.swing.JTextField schoolg10field;
-    private javax.swing.JTextField schoolid;
     private javax.swing.JLabel schoolidd;
+    private javax.swing.JTextField schoolidfield;
     private javax.swing.JLabel section;
     private javax.swing.JComboBox<String> sectioncombobox;
     private javax.swing.JLabel strand;
-    private javax.swing.JLabel strand1;
-    private javax.swing.JLabel strand10;
-    private javax.swing.JLabel strand2;
-    private javax.swing.JLabel strand4;
-    private javax.swing.JLabel strand5;
-    private javax.swing.JLabel strand6;
-    private javax.swing.JLabel strand7;
-    private javax.swing.JLabel strand9;
     private javax.swing.JComboBox<String> strandcombobox;
     private javax.swing.JLabel title;
     private javax.swing.JLabel uphdlogo;
+    private javax.swing.JLabel zipcode;
     private javax.swing.JTextField zipcodfield;
     // End of variables declaration//GEN-END:variables
 }
