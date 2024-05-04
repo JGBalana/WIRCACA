@@ -26,10 +26,13 @@ CREATE TABLE `students` (
 drop table users;
 CREATE TABLE `users` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-   `name` varchar(255),
-    `username` varchar(255),
-    `password` varchar(255),
-    `is_admin` tinyint(1) DEFAULT '0',
-     PRIMARY KEY (`id`),
-     UNIQUE KEY `username_uk` (`username`)
-);
+  `name` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `is_admin` tinyint(1) DEFAULT '0',
+  `student_id` int unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username_uk` (`username`),
+  KEY `student_fk` (`student_id`),
+  CONSTRAINT `student_fk` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE
+) ;

@@ -431,12 +431,12 @@ public class signup2 extends javax.swing.JFrame {
                     showMessageDialog(null, "Username already exists");
                 } else {
                     // insert student
-                    String insertStudent = "INSERT INTO students "
+                    String insertStudentSql = "INSERT INTO students "
                             + "(first_name, middle_name, last_name, age, gender, birthday, strand, level, section, school_id, contact_info, email, "
                             + " former_school, permanent_address, present_address, city, province, zip_code)"
                             + " VALUES "
                             + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?, ? , ? , ?, ?, ?, ?, ?)";
-                    PreparedStatement preparedStmt = con.prepareStatement(insertStudent);
+                    PreparedStatement preparedStmt = con.prepareStatement(insertStudentSql, Statement.RETURN_GENERATED_KEYS);
                     preparedStmt.setString(1, fname);
                     preparedStmt.setString(2, mname);
                     preparedStmt.setString(3, lname);
@@ -456,17 +456,24 @@ public class signup2 extends javax.swing.JFrame {
                     preparedStmt.setString(17, province);
                     preparedStmt.setInt(18, zipcode);
                     preparedStmt.executeUpdate();
+                    int student_id = 0;
+
+                    ResultSet rsx = preparedStmt.getGeneratedKeys();
+                    if (rsx.next()) {
+                        student_id = rsx.getInt(1);
+                    } 
 
                     // insert user
-                    String insertUser = "INSERT INTO users "
-                            + "(name, username, password)"
-                            + " VALUES "
-                            + "(?, ?, ?)";
-                    PreparedStatement st2 = con.prepareStatement(insertUser);
+                    String insertUserSql = "INSERT INTO users "
+                            + "(name, username, password, student_id)"
+                            + " VALUES (?, ?, ?, ?)";
+                    PreparedStatement st2 = con.prepareStatement(insertUserSql);
                     st2.setString(1, fname + " " + lname);
                     st2.setString(2, username);
                     st2.setString(3, password);
+                    st2.setInt(4, student_id);
                     st2.executeUpdate();
+                    
                     showMessageDialog(null, "Account created successfully");
 
                     Homepagee home = new Homepagee();
@@ -494,16 +501,24 @@ public class signup2 extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(signup2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(signup2.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(signup2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(signup2.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(signup2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(signup2.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(signup2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(signup2.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
