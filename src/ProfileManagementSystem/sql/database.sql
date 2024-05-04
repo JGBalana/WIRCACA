@@ -22,6 +22,7 @@ CREATE TABLE `students` (
     `zip_code` varchar(255),
     `username` varchar(255),
     `password` varchar(255),
+    `is_admin` tinyint(1) DEFAULT '0',
      PRIMARY KEY (`id`),
      UNIQUE KEY `username_uk` (`username`)
 );
