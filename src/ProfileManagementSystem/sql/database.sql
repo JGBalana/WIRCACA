@@ -1,4 +1,4 @@
-/** Create Students Table **/
+/** Create Project Tables **/
 drop table students;
 CREATE TABLE `students` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -20,6 +20,13 @@ CREATE TABLE `students` (
     `city` varchar(255),
     `province` varchar(255),
     `zip_code` varchar(255),
+     PRIMARY KEY (`id`)
+);
+
+drop table users;
+CREATE TABLE `users` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+   `name` varchar(255),
     `username` varchar(255),
     `password` varchar(255),
     `is_admin` tinyint(1) DEFAULT '0',

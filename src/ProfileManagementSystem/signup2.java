@@ -425,27 +425,18 @@ public class signup2 extends javax.swing.JFrame {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/profile_management", "root", "");
                 Statement stmt = con.createStatement();
-                String query = "SELECT * FROM students WHERE username = '" + username + "'";
+                String query = "SELECT * FROM users WHERE username = '" + username + "'";
                 ResultSet rs = stmt.executeQuery(query);
                 if (rs.next()) {
                     showMessageDialog(null, "Username already exists");
                 } else {
-//                    String insertQuery = "INSERT INTO students (first_name, middle_name, last_name, age, gender, birthday, username, password) VALUES ('"
-//                            + fname + "', '"
-//                            + mname + "', '"
-//                            + lname + "', '"
-//                            + age + "', '"
-//                            + gender + "', '"
-//                            + birthday + "', '"
-//                            + username + "', '"
-//                            + password + "')";
-//                    stmt.executeUpdate(insertQuery);
-                    String insertQuery = "INSERT INTO students "
+                    // insert student
+                    String insertStudent = "INSERT INTO students "
                             + "(first_name, middle_name, last_name, age, gender, birthday, strand, level, section, school_id, contact_info, email, "
-                            + " former_school, permanent_address, present_address, city, province, zip_code, username, password)"
+                            + " former_school, permanent_address, present_address, city, province, zip_code)"
                             + " VALUES "
-                            + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?, ? , ? , ?, ?, ?, ?, ?, ?, ?)";
-                    PreparedStatement preparedStmt = con.prepareStatement(insertQuery);
+                            + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?, ? , ? , ?, ?, ?, ?, ?)";
+                    PreparedStatement preparedStmt = con.prepareStatement(insertStudent);
                     preparedStmt.setString(1, fname);
                     preparedStmt.setString(2, mname);
                     preparedStmt.setString(3, lname);
@@ -464,13 +455,19 @@ public class signup2 extends javax.swing.JFrame {
                     preparedStmt.setString(16, city);
                     preparedStmt.setString(17, province);
                     preparedStmt.setInt(18, zipcode);
-                    preparedStmt.setString(19, username);
-                    preparedStmt.setString(20, password);
                     preparedStmt.executeUpdate();
+
+                    // insert user
+                    String insertUser = "INSERT INTO users "
+                            + "(name, username, password)"
+                            + " VALUES "
+                            + "(?, ?, ?)";
+                    PreparedStatement st2 = con.prepareStatement(insertUser);
+                    st2.setString(1, fname + " " + lname);
+                    st2.setString(2, username);
+                    st2.setString(3, password);
+                    st2.executeUpdate();
                     showMessageDialog(null, "Account created successfully");
-//                    txtUsername.setText("");
-//                    Password1.setText("");
-//                    Password2.setText("");
 
                     Homepagee home = new Homepagee();
                     home.setVisible(true);

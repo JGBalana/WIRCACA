@@ -270,7 +270,7 @@ public class EditProfile extends javax.swing.JFrame {
 
         age.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         age.setText("AGE:");
-        jPanel3.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 40, -1));
+        jPanel3.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 50, -1));
         jPanel3.add(agefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 50, 40));
 
         gender.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N

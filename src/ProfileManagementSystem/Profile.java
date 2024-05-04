@@ -125,8 +125,6 @@ public class Profile extends javax.swing.JFrame {
         title.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         title.setText("Student Information");
         getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 230, 30));
-
-        uphdlogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\maroon logo.png")); // NOI18N
         getContentPane().add(uphdlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
 
         barforedit.setBackground(new java.awt.Color(153, 0, 0));
@@ -151,7 +149,6 @@ public class Profile extends javax.swing.JFrame {
         leftside.setBackground(new java.awt.Color(255, 255, 255));
         leftside.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profile.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\profileredbutton (1).png")); // NOI18N
         profile.setBorder(null);
         profile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -160,7 +157,6 @@ public class Profile extends javax.swing.JFrame {
         });
         leftside.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, 70));
 
-        schedule.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SCHED-removebg-preview (1).png")); // NOI18N
         schedule.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 scheduleMouseClicked(evt);
@@ -168,7 +164,6 @@ public class Profile extends javax.swing.JFrame {
         });
         leftside.add(schedule, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 80, -1));
 
-        attendance.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\attendance-removebg-preview (1).png")); // NOI18N
         attendance.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 attendanceMouseClicked(evt);
@@ -176,7 +171,6 @@ public class Profile extends javax.swing.JFrame {
         });
         leftside.add(attendance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 100, -1));
 
-        FAQs.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\FAQs-removebg-preview (1).png")); // NOI18N
         FAQs.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 FAQsMouseClicked(evt);
@@ -185,7 +179,6 @@ public class Profile extends javax.swing.JFrame {
         leftside.add(FAQs, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, 80, 60));
 
         homebutt.setBackground(new java.awt.Color(204, 204, 204));
-        homebutt.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SHSlogo (1).png")); // NOI18N
         homebutt.setBorder(null);
         homebutt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -264,7 +257,7 @@ public class Profile extends javax.swing.JFrame {
 
         age.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         age.setText("AGE:");
-        jPanel1.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 40, -1));
+        jPanel1.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 50, -1));
 
         agefield.setEditable(false);
         jPanel1.add(agefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 50, 40));
