@@ -20,6 +20,7 @@ CREATE TABLE `students` (
     `city` varchar(255),
     `province` varchar(255),
     `zip_code` varchar(255),
+    `barangay` varchar(255)
      PRIMARY KEY (`id`)
 );
 

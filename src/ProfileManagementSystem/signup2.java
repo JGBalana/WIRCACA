@@ -110,7 +110,7 @@ public class signup2 extends javax.swing.JFrame {
         cityfield = new javax.swing.JTextField();
         province = new javax.swing.JLabel();
         provincefield = new javax.swing.JTextField();
-        zipcode = new javax.swing.JLabel();
+        barangay = new javax.swing.JLabel();
         zipcodefield = new javax.swing.JTextField();
         USERNAME = new javax.swing.JLabel();
         usernamefield = new javax.swing.JTextField();
@@ -119,6 +119,8 @@ public class signup2 extends javax.swing.JFrame {
         zipcode3 = new javax.swing.JLabel();
         pass2 = new javax.swing.JTextField();
         btnSignup = new javax.swing.JButton();
+        zipcode1 = new javax.swing.JLabel();
+        barangayField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -256,13 +258,13 @@ public class signup2 extends javax.swing.JFrame {
         number.setForeground(new java.awt.Color(255, 255, 255));
         number.setText("CONTACT INFORMATION:");
         jPanel1.add(number, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
-        jPanel1.add(numberfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 210, 40));
+        jPanel1.add(numberfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 240, 40));
 
         email.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         email.setForeground(new java.awt.Color(255, 255, 255));
         email.setText("EMAIL ADDRESS:");
-        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
-        jPanel1.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 310, 40));
+        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+        jPanel1.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 310, 40));
 
         schoolg10.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         schoolg10.setForeground(new java.awt.Color(255, 255, 255));
@@ -291,39 +293,48 @@ public class signup2 extends javax.swing.JFrame {
         city.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         city.setForeground(new java.awt.Color(255, 255, 255));
         city.setText("CITY");
-        jPanel1.add(city, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, -1, -1));
-        jPanel1.add(cityfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 170, 40));
+        jPanel1.add(city, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 530, -1, -1));
+
+        cityfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityfieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cityfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, 180, 40));
 
         province.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         province.setForeground(new java.awt.Color(255, 255, 255));
         province.setText("PROVINCE");
-        jPanel1.add(province, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 530, -1, -1));
-        jPanel1.add(provincefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 550, 170, 40));
+        jPanel1.add(province, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, -1, -1));
+        jPanel1.add(provincefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 180, 40));
 
-        zipcode.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        zipcode.setForeground(new java.awt.Color(255, 255, 255));
-        zipcode.setText("ZIP CODE");
-        jPanel1.add(zipcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 530, -1, -1));
-        jPanel1.add(zipcodefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 550, 170, 40));
+        barangay.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        barangay.setForeground(new java.awt.Color(255, 255, 255));
+        barangay.setText("BARANGAY");
+        jPanel1.add(barangay, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, -1, -1));
+        jPanel1.add(zipcodefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 550, 190, 40));
 
-        USERNAME.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        USERNAME.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 18)); // NOI18N
         USERNAME.setForeground(new java.awt.Color(255, 255, 255));
         USERNAME.setText("USERNAME");
-        jPanel1.add(USERNAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, -1, -1));
-        jPanel1.add(usernamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 680, 260, 40));
+        jPanel1.add(USERNAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, -1, -1));
+        jPanel1.add(usernamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 650, 260, 40));
 
-        zipcode2.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        zipcode2.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 18)); // NOI18N
         zipcode2.setForeground(new java.awt.Color(255, 255, 255));
         zipcode2.setText("PASSWORD");
-        jPanel1.add(zipcode2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 730, -1, -1));
-        jPanel1.add(pass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 750, 260, 40));
+        jPanel1.add(zipcode2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 700, -1, -1));
+        jPanel1.add(pass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 730, 260, 40));
 
-        zipcode3.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        zipcode3.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 18)); // NOI18N
         zipcode3.setForeground(new java.awt.Color(255, 255, 255));
         zipcode3.setText("RE-ENTER PASSWORD");
-        jPanel1.add(zipcode3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 800, -1, -1));
-        jPanel1.add(pass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 820, 260, 40));
+        jPanel1.add(zipcode3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 780, -1, -1));
+        jPanel1.add(pass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 810, 260, 40));
 
+        btnSignup.setBackground(new java.awt.Color(0, 0, 0));
+        btnSignup.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        btnSignup.setForeground(new java.awt.Color(255, 255, 255));
         btnSignup.setText("Sign Up");
         btnSignup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -335,7 +346,13 @@ public class signup2 extends javax.swing.JFrame {
                 btnSignupActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 940, 100, 30));
+        jPanel1.add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 920, 260, 40));
+
+        zipcode1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        zipcode1.setForeground(new java.awt.Color(255, 255, 255));
+        zipcode1.setText("ZIP CODE");
+        jPanel1.add(zipcode1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, -1, -1));
+        jPanel1.add(barangayField, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 550, 210, 40));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -412,6 +429,7 @@ public class signup2 extends javax.swing.JFrame {
             String city = cityfield.getText();
             String province = provincefield.getText();
             int zipcode = Integer.parseInt(zipcodefield.getText());
+            String barangay = barangayField.getText();
             String username = usernamefield.getText();
             String password = pass1.getText();
             String confirmPassword = pass2.getText();
@@ -433,9 +451,9 @@ public class signup2 extends javax.swing.JFrame {
                     // insert student
                     String insertStudentSql = "INSERT INTO students "
                             + "(first_name, middle_name, last_name, age, gender, birthday, strand, level, section, school_id, contact_info, email, "
-                            + " former_school, permanent_address, present_address, city, province, zip_code)"
+                            + " former_school, permanent_address, present_address, city, province, zip_code, barangay)"
                             + " VALUES "
-                            + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?, ? , ? , ?, ?, ?, ?, ?)";
+                            + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?, ? , ? , ?, ?, ?, ?, ?, ?)";
                     PreparedStatement preparedStmt = con.prepareStatement(insertStudentSql, Statement.RETURN_GENERATED_KEYS);
                     preparedStmt.setString(1, fname);
                     preparedStmt.setString(2, mname);
@@ -455,6 +473,7 @@ public class signup2 extends javax.swing.JFrame {
                     preparedStmt.setString(16, city);
                     preparedStmt.setString(17, province);
                     preparedStmt.setInt(18, zipcode);
+                    preparedStmt.setString(19, barangay);
                     preparedStmt.executeUpdate();
                     int student_id = 0;
 
@@ -486,6 +505,10 @@ public class signup2 extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnSignupActionPerformed
+
+    private void cityfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cityfieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -537,6 +560,8 @@ public class signup2 extends javax.swing.JFrame {
     private javax.swing.JTextField addressfield;
     private javax.swing.JLabel age;
     private javax.swing.JTextField agefield;
+    private javax.swing.JLabel barangay;
+    private javax.swing.JTextField barangayField;
     private javax.swing.JLabel bday;
     private com.toedter.calendar.JDateChooser birthday;
     private javax.swing.JButton btnSignup;
@@ -577,7 +602,7 @@ public class signup2 extends javax.swing.JFrame {
     private javax.swing.JLabel strand;
     private javax.swing.JComboBox<String> strandcombobox;
     private javax.swing.JTextField usernamefield;
-    private javax.swing.JLabel zipcode;
+    private javax.swing.JLabel zipcode1;
     private javax.swing.JLabel zipcode2;
     private javax.swing.JLabel zipcode3;
     private javax.swing.JTextField zipcodefield;
