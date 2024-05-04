@@ -13,9 +13,16 @@ import javax.swing.BorderFactory;
 import java.awt.RenderingHints;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import javax.print.attribute.standard.DateTimeAtCompleted;
 import static javax.swing.JOptionPane.showMessageDialog;
+
 /**
  *
  * @author geral
@@ -111,12 +118,11 @@ public class signup2 extends javax.swing.JFrame {
         pass1 = new javax.swing.JTextField();
         zipcode3 = new javax.swing.JLabel();
         pass2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnSignup = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1500, 900));
-        setPreferredSize(new java.awt.Dimension(1500, 900));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -131,7 +137,7 @@ public class signup2 extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 790, 110, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 790, 110, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/UPH Header -2 (1).png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
@@ -142,6 +148,7 @@ public class signup2 extends javax.swing.JFrame {
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 790, -1, -1));
 
         //newest pa sa newest
+        jPanel1.setBackground(new java.awt.Color(255, 0, 51));
         jPanel1.setMinimumSize(new java.awt.Dimension(912, 1007));
         jPanel1.setPreferredSize(new java.awt.Dimension(912, 1007));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -214,7 +221,7 @@ public class signup2 extends javax.swing.JFrame {
         age.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         age.setForeground(new java.awt.Color(255, 255, 255));
         age.setText("AGE:");
-        jPanel1.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 40, -1));
+        jPanel1.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 50, -1));
         jPanel1.add(agefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, 50, 40));
 
         gender.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
@@ -230,7 +237,7 @@ public class signup2 extends javax.swing.JFrame {
         bday.setText("BIRTHDAY:");
         jPanel1.add(bday, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 20));
 
-        birthday.setDateFormatString("MM/dd/YYYY");
+        birthday.setDateFormatString("YYYY-MM-dd");
         jPanel1.add(birthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 190, 40));
 
         schoolidd.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
@@ -260,7 +267,7 @@ public class signup2 extends javax.swing.JFrame {
         schoolg10.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         schoolg10.setForeground(new java.awt.Color(255, 255, 255));
         schoolg10.setText("SCHOOL (G10):");
-        jPanel1.add(schoolg10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 130, 20));
+        jPanel1.add(schoolg10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 140, 20));
 
         schoolg10field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,18 +324,18 @@ public class signup2 extends javax.swing.JFrame {
         jPanel1.add(zipcode3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 800, -1, -1));
         jPanel1.add(pass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 820, 260, 40));
 
-        jButton2.setText("Sign Up");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSignup.setText("Sign Up");
+        btnSignup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnSignupMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnSignup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnSignupActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 940, 100, 30));
+        jPanel1.add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 940, 100, 30));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -345,9 +352,9 @@ public class signup2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-    sigin x = new sigin();
-    x.setVisible (true);
-    this.dispose();
+        sigin x = new sigin();
+        x.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -378,34 +385,103 @@ public class signup2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_schoolg10fieldActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-    Homepagee x = new Homepagee();
-    x.setVisible (true);
-    this.dispose();
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void btnSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignupMouseClicked
+        Homepagee x = new Homepagee();
+        x.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSignupMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    String fname = firstnamefield.getText();
-    String mname = middlenamefield.getText();
-    String lname = lastnamefield.getText();
-    //int age = agefield.nextInt();
-    //int schoolid = schoolidfield.getInt();
-    //int number = numberfield.getInt();
-    String email = emailfield.getText();
-    String g10school = schoolg10field.getText();
-    String address = addressfield.getText();
-    String residence = residencefield.getText();
-    String city = cityfield.getText();
-    String province = provincefield.getText();
-    //int zipcode = zipcodefield.getInt();
-    String username = usernamefield.getText();
-    String password = pass1.getText();
-    String confirmPassword = pass2.getText();
-    
-    if (firstnamefield.getText().isEmpty() || middlenamefield.getText().isEmpty() || lastnamefield.getText().isEmpty() || agefield.getText().isEmpty() || schoolidfield.getText().isEmpty() || numberfield.getText().isEmpty() || emailfield.getText().isEmpty() || schoolg10field.getText().isEmpty() || addressfield.getText().isEmpty() || residencefield.getText().isEmpty() || cityfield.getText().isEmpty() || provincefield.getText().isEmpty() || zipcodefield.getText().isEmpty()) {
-    showMessageDialog(null, "Please fill in all fields.");
-    }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
+
+        try {
+            String fname = firstnamefield.getText();
+            String mname = middlenamefield.getText();
+            String lname = lastnamefield.getText();
+            int age = Integer.parseInt(agefield.getText());
+            String schoolId = schoolidfield.getText();
+            String number = numberfield.getText();
+            Date birthday = this.birthday.getDate();
+            String gender = gendercombobox.getSelectedItem().toString();
+            String strand = strandcombobox.getSelectedItem().toString();
+            int level = Integer.parseInt(levelcombobox.getSelectedItem().toString());
+            int section = Integer.parseInt(sectioncombobox.getSelectedItem().toString());
+            String email = emailfield.getText();
+            String g10school = schoolg10field.getText();
+            String address = addressfield.getText();
+            String residence = residencefield.getText();
+            String city = cityfield.getText();
+            String province = provincefield.getText();
+            int zipcode = Integer.parseInt(zipcodefield.getText());
+            String username = usernamefield.getText();
+            String password = pass1.getText();
+            String confirmPassword = pass2.getText();
+
+            if (firstnamefield.getText().isEmpty() || middlenamefield.getText().isEmpty() || lastnamefield.getText().isEmpty() || agefield.getText().isEmpty() || schoolidfield.getText().isEmpty() || numberfield.getText().isEmpty() || emailfield.getText().isEmpty() || schoolg10field.getText().isEmpty() || addressfield.getText().isEmpty() || residencefield.getText().isEmpty() || cityfield.getText().isEmpty() || provincefield.getText().isEmpty() || zipcodefield.getText().isEmpty()) {
+                showMessageDialog(null, "Please fill in all fields.");
+
+            } else if (!password.equals(confirmPassword)) {
+                showMessageDialog(null, "Passwords do not match.");
+            } else {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/profile_management", "root", "");
+                Statement stmt = con.createStatement();
+                String query = "SELECT * FROM students WHERE username = '" + username + "'";
+                ResultSet rs = stmt.executeQuery(query);
+                if (rs.next()) {
+                    showMessageDialog(null, "Username already exists");
+                } else {
+//                    String insertQuery = "INSERT INTO students (first_name, middle_name, last_name, age, gender, birthday, username, password) VALUES ('"
+//                            + fname + "', '"
+//                            + mname + "', '"
+//                            + lname + "', '"
+//                            + age + "', '"
+//                            + gender + "', '"
+//                            + birthday + "', '"
+//                            + username + "', '"
+//                            + password + "')";
+//                    stmt.executeUpdate(insertQuery);
+                    String insertQuery = "INSERT INTO students "
+                            + "(first_name, middle_name, last_name, age, gender, birthday, strand, level, section, school_id, contact_info, email, "
+                            + " former_school, permanent_address, present_address, city, province, zip_code, username, password)"
+                            + " VALUES "
+                            + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?, ? , ? , ?, ?, ?, ?, ?, ?, ?)";
+                    PreparedStatement preparedStmt = con.prepareStatement(insertQuery);
+                    preparedStmt.setString(1, fname);
+                    preparedStmt.setString(2, mname);
+                    preparedStmt.setString(3, lname);
+                    preparedStmt.setInt(4, age);
+                    preparedStmt.setString(5, gender);
+                    preparedStmt.setDate(6, new java.sql.Date(birthday.getTime()));
+                    preparedStmt.setString(7, strand);
+                    preparedStmt.setInt(8, level);
+                    preparedStmt.setInt(9, section);
+                    preparedStmt.setString(10, schoolId);
+                    preparedStmt.setString(11, number);
+                    preparedStmt.setString(12, email);
+                    preparedStmt.setString(13, g10school);
+                    preparedStmt.setString(14, address);
+                    preparedStmt.setString(15, residence);
+                    preparedStmt.setString(16, city);
+                    preparedStmt.setString(17, province);
+                    preparedStmt.setInt(18, zipcode);
+                    preparedStmt.setString(19, username);
+                    preparedStmt.setString(20, password);
+                    preparedStmt.executeUpdate();
+                    showMessageDialog(null, "Account created successfully");
+//                    txtUsername.setText("");
+//                    Password1.setText("");
+//                    Password2.setText("");
+
+                    Homepagee home = new Homepagee();
+                    home.setVisible(true);
+                    this.dispose();
+                }
+            }
+        } catch (Exception e) {
+            showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_btnSignupActionPerformed
 
     /**
      * @param args the command line arguments
@@ -451,6 +527,7 @@ public class signup2 extends javax.swing.JFrame {
     private javax.swing.JTextField agefield;
     private javax.swing.JLabel bday;
     private com.toedter.calendar.JDateChooser birthday;
+    private javax.swing.JButton btnSignup;
     private javax.swing.JLabel city;
     private javax.swing.JTextField cityfield;
     private javax.swing.JLabel email;
@@ -460,7 +537,6 @@ public class signup2 extends javax.swing.JFrame {
     private javax.swing.JLabel gender;
     private javax.swing.JComboBox<String> gendercombobox;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;

@@ -66,7 +66,6 @@ public class EditProfile extends javax.swing.JFrame {
         gender = new javax.swing.JLabel();
         gendercombobox = new javax.swing.JComboBox<>();
         bday = new javax.swing.JLabel();
-        birthday = new com.toedter.calendar.JDateChooser();
         schoolidd = new javax.swing.JLabel();
         schoolid = new javax.swing.JTextField();
         number = new javax.swing.JLabel();
@@ -137,7 +136,6 @@ public class EditProfile extends javax.swing.JFrame {
         leftside.setBackground(new java.awt.Color(255, 255, 255));
         leftside.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SCHED-removebg-preview (1).png")); // NOI18N
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
@@ -145,7 +143,6 @@ public class EditProfile extends javax.swing.JFrame {
         });
         leftside.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 80, -1));
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\attendance-removebg-preview (1).png")); // NOI18N
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
@@ -153,7 +150,6 @@ public class EditProfile extends javax.swing.JFrame {
         });
         leftside.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 100, -1));
 
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\FAQs-removebg-preview (1).png")); // NOI18N
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton6MouseClicked(evt);
@@ -162,7 +158,6 @@ public class EditProfile extends javax.swing.JFrame {
         leftside.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, 80, 60));
 
         jButton8.setBackground(new java.awt.Color(204, 204, 204));
-        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SHSlogo (1).png")); // NOI18N
         jButton8.setBorder(null);
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -171,9 +166,7 @@ public class EditProfile extends javax.swing.JFrame {
         });
         leftside.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\profile red (1).png")); // NOI18N
         jButton2.setBorder(null);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -211,8 +204,6 @@ public class EditProfile extends javax.swing.JFrame {
         barforedit.add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, 110, -1));
 
         jPanel1.add(barforedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 970, 60));
-
-        logouphsd.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\maroon logo.png")); // NOI18N
         jPanel1.add(logouphsd, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
 
         jPanel3.setMinimumSize(new java.awt.Dimension(912, 1007));
@@ -292,9 +283,6 @@ public class EditProfile extends javax.swing.JFrame {
         bday.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         bday.setText("BIRTHDAY:");
         jPanel3.add(bday, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 20));
-
-        birthday.setDateFormatString("MM/dd/YYYY");
-        jPanel3.add(birthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 190, 40));
 
         schoolidd.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         schoolidd.setText("SCHOOL ID:");
@@ -510,7 +498,6 @@ public class EditProfile extends javax.swing.JFrame {
     private javax.swing.JTextField agefield;
     private javax.swing.JPanel barforedit;
     private javax.swing.JLabel bday;
-    private com.toedter.calendar.JDateChooser birthday;
     private javax.swing.JLabel city;
     private javax.swing.JTextField cityfield;
     private javax.swing.JLabel email;
