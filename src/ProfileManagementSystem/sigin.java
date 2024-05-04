@@ -20,6 +20,7 @@ import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
+
 /**
  *
  * @author geral
@@ -191,7 +192,7 @@ public class sigin extends javax.swing.JFrame {
     private void hide1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide1MousePressed
         open1.setVisible(true);
         hide1.setVisible(false);
-        txtPassword.setEchoChar((char)0);
+        txtPassword.setEchoChar((char) 0);
     }//GEN-LAST:event_hide1MousePressed
 
     private void hide1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hide1MouseReleased
@@ -205,15 +206,15 @@ public class sigin extends javax.swing.JFrame {
     }//GEN-LAST:event_open1MousePressed
 
     private void SIbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SIbuttonMouseClicked
-    Homepagee x = new Homepagee();
-    x.setVisible (true);
-    this.dispose();
+        Homepagee x = new Homepagee();
+        x.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_SIbuttonMouseClicked
 
     private void signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseClicked
-    signup2 x = new signup2();
-    x.setVisible (true);
-    this.dispose();
+        signup2 x = new signup2();
+        x.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_signupMouseClicked
 
     private void SIbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIbuttonActionPerformed
@@ -223,33 +224,30 @@ public class sigin extends javax.swing.JFrame {
             String password = txtPassword.getText();
             if (username.isEmpty() && password.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
-            }
-            else {
+            } else {
                 // connect to mysql database and check if username and password is correct from database records
                 // if correct, proceed to homepage
                 // else, prompt user that username or password is incorrect
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentManagement", "root", "");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/profile_management", "root", "");
                 Statement stmt = con.createStatement();
-                String query = "SELECT * FROM accounts WHERE username = '" + username + "'";
+                String query = "SELECT * FROM students WHERE username = '" + username + "'";
                 ResultSet rs = stmt.executeQuery(query);
                 if (rs.next()) {
                     if (rs.getString("password").equals(password)) {
-                        
-                    if(username.equals("admin.access")&& password.equals("1234")) {
-                    ADMIN_PAGE x = new ADMIN_PAGE();
-                    x.setVisible(true);
-                    this.dispose();
-                    }
-                    else{ 
-                    javax.swing.JOptionPane.showMessageDialog(null, "Welcome " + rs.getString("username") + "!" );
-                    Homepagee x = new Homepagee();
-                    x.setVisible(true);
-                    this.dispose();
-                    }
-                    } 
-                    else {
-                    javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
+
+                        if (rs.getBoolean("is_admin")) {
+                            ADMIN_PAGE x = new ADMIN_PAGE();
+                            x.setVisible(true);
+                            this.dispose();
+                        } else {
+                            javax.swing.JOptionPane.showMessageDialog(null, "Welcome " + rs.getString("username") + "!");
+                            Homepagee x = new Homepagee();
+                            x.setVisible(true);
+                            this.dispose();
+                        }
+                    } else {
+                        javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
                     }
                 } else {
                     javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
@@ -261,7 +259,7 @@ public class sigin extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }//GEN-LAST:event_SIbuttonActionPerformed
-        
+
     /**
      * @param args the command line arguments
      */
@@ -313,32 +311,31 @@ public class sigin extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
        private void setGradientColor(javax.swing.JPanel panel, String hexColor1, String hexColor2) {
-    Color color1 = Color.decode(hexColor1);
-    Color color2 = Color.decode(hexColor2);
-   
-    // Override the JPanel's paintComponent method to draw the gradient
-    panel = new javax.swing.JPanel() {
-        @Override
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-           
-            // Calculate the center position of the panel
-            int centerX = getWidth() / 2;
-            int centerY = getHeight() / 2;
-           
-            // Calculate the diagonal distance from the center to the corner
-            double diagonalLength = Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2));
-           
-            // Calculate the start and end positions for the gradient based on the center
-            GradientPaint gradient = new GradientPaint(
-                    centerX, centerY, color1, // Start position and color
-                    (float) (centerX + diagonalLength / 2), (float) (centerY + diagonalLength / 2), color2); // End position and color
-           
-            Graphics2D g2d = (Graphics2D) g;
-            g2d.setPaint(gradient);
-            g2d.fillRect(0, 0, getWidth(), getHeight()); // Fill the entire panel with gradient
-        }
-    };
- }
-}
+        Color color1 = Color.decode(hexColor1);
+        Color color2 = Color.decode(hexColor2);
 
+        // Override the JPanel's paintComponent method to draw the gradient
+        panel = new javax.swing.JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+
+                // Calculate the center position of the panel
+                int centerX = getWidth() / 2;
+                int centerY = getHeight() / 2;
+
+                // Calculate the diagonal distance from the center to the corner
+                double diagonalLength = Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2));
+
+                // Calculate the start and end positions for the gradient based on the center
+                GradientPaint gradient = new GradientPaint(
+                        centerX, centerY, color1, // Start position and color
+                        (float) (centerX + diagonalLength / 2), (float) (centerY + diagonalLength / 2), color2); // End position and color
+
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setPaint(gradient);
+                g2d.fillRect(0, 0, getWidth(), getHeight()); // Fill the entire panel with gradient
+            }
+        };
+    }
+}
