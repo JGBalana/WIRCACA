@@ -9,12 +9,12 @@ package ProfileManagementSystem;
  *
  * @author geral
  */
-public class homeadmin extends javax.swing.JFrame {
+public class AdminHomepage extends javax.swing.JFrame {
 
     /**
      * Creates new form homeadmin
      */
-    public homeadmin() {
+    public AdminHomepage() {
         initComponents();
     }
 
@@ -42,7 +42,6 @@ public class homeadmin extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1500, 900));
         setMinimumSize(new java.awt.Dimension(1500, 900));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -94,7 +93,6 @@ public class homeadmin extends javax.swing.JFrame {
         });
         jPanel3.add(btnStudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 70, 60));
 
-        btnAdminManager.setBackground(new java.awt.Color(255, 255, 255));
         btnAdminManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/adminmanager (1).png"))); // NOI18N
         btnAdminManager.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -185,20 +183,21 @@ public class homeadmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(homeadmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminHomepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(homeadmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminHomepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(homeadmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminHomepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(homeadmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminHomepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new homeadmin().setVisible(true);
+                new AdminHomepage().setVisible(true);
             }
         });
     }
