@@ -156,6 +156,8 @@ public class StudentDataManagement extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         studentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -194,6 +196,8 @@ public class StudentDataManagement extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jPanel3);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 900, 470));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("Search for:");
 
