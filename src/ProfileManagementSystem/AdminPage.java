@@ -7,8 +7,11 @@ package ProfileManagementSystem;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,12 +19,50 @@ import javax.swing.table.DefaultTableModel;
  * @author chrys
  */
 public class AdminPage extends javax.swing.JFrame {
-boolean isPasswordVisible = false;
+
+    boolean isPasswordVisible = false;
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rsx = null;
+
     /**
      * Creates new form ADMIN_PAGE
      */
     public AdminPage() {
         initComponents();
+        conn = DbConnection.connect();
+        updateTable();
+    }
+
+    private void updateTable() {
+        try {
+            //open connection
+            Statement stmt = conn.createStatement();
+            String query = "SELECT * FROM users";
+            ResultSet rs = stmt.executeQuery(query);
+            DefaultTableModel tblModel = (DefaultTableModel) userTable.getModel();
+            tblModel.setRowCount(0);
+            while (rs.next()) {
+                String id = String.valueOf(rs.getInt("id"));
+                String name = rs.getString("name");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String is_admin = String.valueOf(rs.getInt("is_admin"));
+                String student_id = String.valueOf(rs.getInt("student_id"));
+
+                String tbData[] = {
+                    id,
+                    name,
+                    username,
+                    password,
+                    is_admin,
+                    student_id
+                };
+
+                tblModel.addRow(tbData);
+            }
+        } catch (SQLException e) {
+        }
     }
 
     /**
@@ -37,7 +78,7 @@ boolean isPasswordVisible = false;
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton()
         ;
-        jButton3 = new javax.swing.JButton();
+        btnAdminManager = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         redbar = new javax.swing.JPanel();
@@ -45,6 +86,8 @@ boolean isPasswordVisible = false;
         showDataTable = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -69,12 +112,13 @@ boolean isPasswordVisible = false;
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, 60));
 
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAdminManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/adminmanager.png"))); // NOI18N
+        btnAdminManager.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                btnAdminManagerMouseClicked(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 70));
+        jPanel2.add(btnAdminManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 70));
 
         jButton10.setBackground(new java.awt.Color(204, 204, 204));
         jButton10.setBorder(null);
@@ -103,11 +147,11 @@ boolean isPasswordVisible = false;
         redbar.setLayout(redbarLayout);
         redbarLayout.setHorizontalGroup(
             redbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1500, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         redbarLayout.setVerticalGroup(
             redbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel1.add(redbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 40));
@@ -115,7 +159,7 @@ boolean isPasswordVisible = false;
         jPanel7.setBackground(new java.awt.Color(153, 0, 0));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        showDataTable.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        showDataTable.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 12)); // NOI18N
         showDataTable.setText("Show data table");
         showDataTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -127,25 +171,58 @@ boolean isPasswordVisible = false;
                 showDataTableActionPerformed(evt);
             }
         });
-        jPanel7.add(showDataTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 170, -1));
+        jPanel7.add(showDataTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 130, 30));
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Manage Users");
         jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 410, -1));
 
-        jButton9.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        jButton9.setText("Register");
+        jButton9.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 12)); // NOI18N
+        jButton9.setText("Delete");
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton9MouseClicked(evt);
             }
         });
-        jPanel7.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 170, -1));
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 70, 30));
+
+        btnAdd.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 12)); // NOI18N
+        btnAdd.setText("Add");
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddMouseClicked(evt);
+            }
+        });
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 60, 30));
+
+        jButton12.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 12)); // NOI18N
+        jButton12.setText("Edit");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 60, 30));
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 890, 70));
 
-        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
         jLabel1.setText("Users Data");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, 140, 60));
 
@@ -186,35 +263,35 @@ boolean isPasswordVisible = false;
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         studentdataadmin v = new studentdataadmin();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void btnAdminManagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminManagerMouseClicked
         AdminPage v = new AdminPage();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_btnAdminManagerMouseClicked
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         Homepagee v = new Homepagee();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void showDataTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showDataTableMouseClicked
-    
+
     }//GEN-LAST:event_showDataTableMouseClicked
 
     private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
         Homepagee v = new Homepagee();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton16MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         SigninPage v = new SigninPage();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -224,42 +301,29 @@ boolean isPasswordVisible = false;
 
     private void showDataTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDataTableActionPerformed
         // TODO add your handling code here:
-         try {
-            //open connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/profile_management", "root", "");
-            Statement stmt = con.createStatement();
-            String query = "SELECT * FROM users";
-            ResultSet rs = stmt.executeQuery(query);
-            DefaultTableModel tblModel = (DefaultTableModel) userTable.getModel();
-            tblModel.setRowCount(0);
-            while (rs.next()) {
-                String id = String.valueOf(rs.getInt("id"));
-                String name = rs.getString("name");
-                String username = rs.getString("username");
-                String password = rs.getString("password");
-                String is_admin = String.valueOf(rs.getInt("is_admin"));
-                String student_id = String.valueOf(rs.getInt("student_id"));
-               
-                 
-
-                String tbData[] = {
-                    id, 
-                    name,
-                    username,
-                    password,
-                    is_admin,
-                    student_id
-                };
-                
-
-                tblModel.addRow(tbData);
-            }
-
-            con.close();
-        } catch (Exception e) {
-        }
+        updateTable();
     }//GEN-LAST:event_showDataTableActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddMouseClicked
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+       AddUserPage page = new AddUserPage();
+       page.setVisible(true);
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,16 +339,28 @@ boolean isPasswordVisible = false;
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminPage.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AdminPage.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AdminPage.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AdminPage.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -298,11 +374,13 @@ boolean isPasswordVisible = false;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAdminManager;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
