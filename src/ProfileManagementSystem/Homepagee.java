@@ -43,6 +43,8 @@ public class Homepagee extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1500, 900));
+        setMinimumSize(new java.awt.Dimension(1500, 900));
         setResizable(false);
 
         jPanel1.setMinimumSize(new java.awt.Dimension(1500, 900));

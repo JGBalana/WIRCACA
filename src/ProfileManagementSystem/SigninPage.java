@@ -159,7 +159,7 @@ public class SigninPage extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/UPH-HEADER-YELLOW.png"))); // NOI18N
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(70, 30, 470, 150);
+        jLabel8.setBounds(60, 30, 470, 150);
 
         jLabel9.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
