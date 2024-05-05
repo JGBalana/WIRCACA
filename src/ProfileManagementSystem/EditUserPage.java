@@ -4,22 +4,37 @@
  */
 package ProfileManagementSystem;
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author nica
  */
-public class AddUserPage extends javax.swing.JFrame {
-    public Connection conn = null;
+public class EditUserPage extends javax.swing.JFrame {
+
+    Connection conn = DbConnection.connect();
+    public int userId = 0;
+    
     /**
-     * Creates new form AddUserPage
+     * Creates new form EditUserPage
      */
-    public AddUserPage() {
+    public EditUserPage() {
         initComponents();
-        conn = DbConnection.connect();
+    }
+
+    public void loadData(int userId, String name, String username, String password, int isAdmin, int studentId) {
+        this.userId = userId;
+        
+        lblUserId.setText(String.valueOf(userId));
+        txtName.setText(name);
+        txtUsername.setText(username);
+        txtPassword.setText(password);
+        cbAdmin.setSelectedIndex(isAdmin == 1 ? 0 : 1);
+        txtStudentId.setText(String.valueOf(studentId));
     }
 
     /**
@@ -31,9 +46,6 @@ public class AddUserPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
@@ -43,16 +55,13 @@ public class AddUserPage extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtStudentId = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lblUserId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Name:");
-
-        jLabel2.setText("Password:");
-
-        jLabel3.setText("Username:");
 
         jLabel4.setText("Is Admin:");
 
@@ -66,12 +75,23 @@ public class AddUserPage extends javax.swing.JFrame {
         });
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Student Id:");
 
+        jLabel1.setText("Name:");
+
+        jLabel2.setText("Password:");
+
+        jLabel3.setText("Username:");
+
         jLabel6.setText("ID:");
 
-        lblUserId.setText("{user id}");
+        lblUserId.setText("ID:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,7 +106,8 @@ public class AddUserPage extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -101,20 +122,17 @@ public class AddUserPage extends javax.swing.JFrame {
                             .addComponent(txtStudentId)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(119, 119, 119)
-                        .addComponent(btnSave))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(jLabel6)))
-                .addContainerGap(207, Short.MAX_VALUE))
+                        .addComponent(btnSave)))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(124, 124, 124)
+                .addGap(118, 118, 118)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(lblUserId))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -138,17 +156,14 @@ public class AddUserPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnCancel))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
-        
-        //Insert data
-        String sql = "INSERT INTO users(name, username, password, is_admin, student_id) VALUES(?,?,?,?, ?)";
+        String sql = "update users set name = ?, username = ?, password = ?, is_admin = ?, student_id = ? where id = " + this.userId;
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, txtName.getText());
@@ -157,13 +172,17 @@ public class AddUserPage extends javax.swing.JFrame {
             pst.setInt(4, cbAdmin.getSelectedItem().toString().equals("True") ? 1 : 0);
             pst.setInt(5, Integer.parseInt(txtStudentId.getText()));
             pst.execute();
-            JOptionPane.showMessageDialog(null, "User Successfully Added!");
+            JOptionPane.showMessageDialog(null, "User Successfully Updated!");
             this.dispose();
-            
-        } catch (Exception e) {
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,23 +200,12 @@ public class AddUserPage extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddUserPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddUserPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddUserPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddUserPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(EditUserPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddUserPage().setVisible(true);
-            }
-        });
+        
+        //</editor-fold>
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -216,4 +224,5 @@ public class AddUserPage extends javax.swing.JFrame {
     private javax.swing.JTextField txtStudentId;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -12,7 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -314,8 +316,8 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddMouseClicked
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-       AddUserPage page = new AddUserPage();
-       page.setVisible(true);
+        AddUserPage page = new AddUserPage();
+        page.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
@@ -323,7 +325,20 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        EditUserPage page = new EditUserPage();
+        final int selectedRow = userTable.getSelectedRow();
+        final TableModel model = userTable.getModel();
+
+        model.getValueAt(selectedRow, 0);
+        page.loadData(
+                Integer.parseInt(model.getValueAt(selectedRow, 0).toString()),
+                model.getValueAt(selectedRow, 1).toString(),
+                model.getValueAt(selectedRow, 2).toString(),
+                model.getValueAt(selectedRow, 3).toString(),
+                Integer.parseInt(model.getValueAt(selectedRow, 4).toString()),
+                Integer.parseInt(model.getValueAt(selectedRow, 5).toString())
+        );
+        page.setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
@@ -341,27 +356,23 @@ public class AdminPage extends javax.swing.JFrame {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class  
+            java.util.logging.Logger.getLogger(AdminPage.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AdminPage.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class  
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AdminPage.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AdminPage.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
