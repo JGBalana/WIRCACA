@@ -8,6 +8,7 @@ import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Types;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +19,7 @@ public class EditUserPage extends javax.swing.JFrame {
 
     Connection conn = DbConnection.connect();
     public int userId = 0;
-    
+
     /**
      * Creates new form EditUserPage
      */
@@ -28,7 +29,7 @@ public class EditUserPage extends javax.swing.JFrame {
 
     public void loadData(int userId, String name, String username, String password, int isAdmin, int studentId) {
         this.userId = userId;
-        
+
         lblUserId.setText(String.valueOf(userId));
         txtName.setText(name);
         txtUsername.setText(username);
@@ -170,7 +171,12 @@ public class EditUserPage extends javax.swing.JFrame {
             pst.setString(2, txtUsername.getText());
             pst.setString(3, txtPassword.getText());
             pst.setInt(4, cbAdmin.getSelectedItem().toString().equals("True") ? 1 : 0);
-            pst.setInt(5, Integer.parseInt(txtStudentId.getText()));
+            final int studentId = Integer.parseInt(txtStudentId.getText());
+            if (studentId > 0) {
+                pst.setInt(5, studentId);
+            } else {
+                pst.setNull(5, Types.INTEGER);
+            }
             pst.execute();
             JOptionPane.showMessageDialog(null, "User Successfully Updated!");
             this.dispose();
@@ -204,7 +210,7 @@ public class EditUserPage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(EditUserPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
     }
 

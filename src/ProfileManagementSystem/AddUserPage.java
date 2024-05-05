@@ -6,6 +6,7 @@ package ProfileManagementSystem;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.Types;
 import javax.swing.JOptionPane;
 
 /**
@@ -43,7 +44,6 @@ public class AddUserPage extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtStudentId = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         lblUserId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,12 +66,13 @@ public class AddUserPage extends javax.swing.JFrame {
         });
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Student Id:");
-
-        jLabel6.setText("ID:");
-
-        lblUserId.setText("{user id}");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,19 +102,14 @@ public class AddUserPage extends javax.swing.JFrame {
                             .addComponent(txtStudentId)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(119, 119, 119)
-                        .addComponent(btnSave))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(jLabel6)))
+                        .addComponent(btnSave)))
                 .addContainerGap(207, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(124, 124, 124)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(lblUserId))
+                .addComponent(lblUserId)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -138,7 +134,7 @@ public class AddUserPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnCancel))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         pack();
@@ -155,7 +151,12 @@ public class AddUserPage extends javax.swing.JFrame {
             pst.setString(2, txtUsername.getText());
             pst.setString(3, txtPassword.getText());
             pst.setInt(4, cbAdmin.getSelectedItem().toString().equals("True") ? 1 : 0);
-            pst.setInt(5, Integer.parseInt(txtStudentId.getText()));
+            final int studentId = Integer.parseInt(txtStudentId.getText());
+            if (studentId > 0) {
+                pst.setInt(5, studentId);
+            } else {
+                pst.setNull(5, Types.INTEGER);
+            }
             pst.execute();
             JOptionPane.showMessageDialog(null, "User Successfully Added!");
             this.dispose();
@@ -164,6 +165,11 @@ public class AddUserPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,7 +215,6 @@ public class AddUserPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lblUserId;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;

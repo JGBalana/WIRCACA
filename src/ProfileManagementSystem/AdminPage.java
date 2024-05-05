@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
@@ -33,10 +35,10 @@ public class AdminPage extends javax.swing.JFrame {
     public AdminPage() {
         initComponents();
         conn = DbConnection.connect();
-        updateTable();
+        refreshTable();
     }
 
-    private void updateTable() {
+    private void refreshTable() {
         try {
             //open connection
             Statement stmt = conn.createStatement();
@@ -304,11 +306,22 @@ public class AdminPage extends javax.swing.JFrame {
 
     private void showDataTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDataTableActionPerformed
         // TODO add your handling code here:
-        updateTable();
+        refreshTable();
     }//GEN-LAST:event_showDataTableActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        int selectedrow = userTable.getSelectedRow();
+        TableModel model = userTable.getModel();
+        int id = Integer.parseInt((String)model.getValueAt(selectedrow, 0));
+        String sql = "delete from users where id = " + id;
+        try {
+            conn.createStatement().execute(sql);
+                    JOptionPane.showMessageDialog(null, "User Successfully Deleted!");
+                    refreshTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
