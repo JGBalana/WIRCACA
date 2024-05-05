@@ -20,7 +20,8 @@ CREATE TABLE `students` (
     `city` varchar(255),
     `province` varchar(255),
     `zip_code` varchar(255),
-    `barangay` varchar(255)
+    `barangay` varchar(255),
+    `picture` varchar(1000),
      PRIMARY KEY (`id`)
 );
 

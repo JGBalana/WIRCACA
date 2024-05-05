@@ -7,6 +7,9 @@ package ProfileManagementSystem;
 
 import ProfileManagementSystem.Entities.Student;
 import java.awt.HeadlessException;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -15,7 +18,11 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -53,6 +60,12 @@ public class Profile extends javax.swing.JFrame {
         cityfield.setText(student.city);
         barangayfield.setText(student.barangay);
         zipcodfield.setText(String.valueOf(student.zipcode));
+        
+        lblFilename.setText(""); // reset filename
+        lblFilename.setText(student.picture);
+        if (!student.picture.isEmpty()) {
+            lblImg.setIcon(new ImageIcon(student.picture));
+        }
     }
 
     /**
@@ -64,6 +77,7 @@ public class Profile extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        fc = new javax.swing.JFileChooser();
         redbar = new javax.swing.JPanel();
         logout = new javax.swing.JButton();
         title = new javax.swing.JLabel();
@@ -91,7 +105,7 @@ public class Profile extends javax.swing.JFrame {
         strand = new javax.swing.JLabel();
         strandcombobox = new javax.swing.JComboBox<>();
         levelcombobox = new javax.swing.JComboBox<>();
-        level = new javax.swing.JLabel();
+        lblFilename = new javax.swing.JLabel();
         sectioncombobox = new javax.swing.JComboBox<>();
         section = new javax.swing.JLabel();
         age = new javax.swing.JLabel();
@@ -120,9 +134,9 @@ public class Profile extends javax.swing.JFrame {
         zipcodfield = new javax.swing.JTextField();
         provincefield1 = new javax.swing.JTextField();
         zipcode1 = new javax.swing.JLabel();
-        lbl_img = new javax.swing.JLabel();
+        lblImg = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        level1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -299,8 +313,8 @@ public class Profile extends javax.swing.JFrame {
         levelcombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "11", "12" }));
         jPanel1.add(levelcombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 70, 40));
 
-        level.setText("Level");
-        jPanel1.add(level, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
+        lblFilename.setText("Selected Filename");
+        jPanel1.add(lblFilename, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 200, -1));
 
         sectioncombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4","5","6","7","8","9", "10", "11", "12", "13", "14", "15" }));
         jPanel1.add(sectioncombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 70, 40));
@@ -389,14 +403,19 @@ public class Profile extends javax.swing.JFrame {
         zipcode1.setText("ZIP CODE");
         jPanel1.add(zipcode1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 580, -1, 20));
 
-        lbl_img.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(lbl_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 200, 200));
+        lblImg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(lblImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 200, 200));
 
         jButton1.setText("Choose");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 100, -1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 200, -1));
 
-        jButton5.setText("Save");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 90, -1));
+        level1.setText("Level");
+        jPanel1.add(level1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -505,6 +524,7 @@ public class Profile extends javax.swing.JFrame {
                 + ",city = ? "
                 + ",barangay = ? "
                 + ",zip_code = ? "
+                + ",picture = ? "
                 + " where id = " + this.student.id;
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
@@ -526,6 +546,7 @@ public class Profile extends javax.swing.JFrame {
             pst.setString(16, cityfield.getText());
             pst.setString(17, barangayfield.getText());
             pst.setInt(18, Integer.parseInt(zipcodfield.getText()));
+            pst.setString(19, lblFilename.getText());
             pst.executeUpdate();
 
             reloadStudent();
@@ -535,6 +556,28 @@ public class Profile extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        FileFilter ff = new FileNameExtensionFilter("images", "jpeg");
+        fc.addChoosableFileFilter(ff);
+        int open = fc.showOpenDialog(this);
+
+        if (open == javax.swing.JFileChooser.APPROVE_OPTION) {
+
+            java.io.File path = fc.getSelectedFile();
+
+            String file_name = path.toString();
+
+            lblFilename.setText(file_name);
+
+            BufferedImage bi; // bi is the object of the class BufferedImage
+            try {
+                bi = ImageIO.read(path); // path is your file or image path
+                lblImg.setIcon(new ImageIcon(bi));
+            } catch (IOException e) {
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void reloadStudent() {
         try {
@@ -570,6 +613,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JTextField cityfield;
     private javax.swing.JLabel email;
     private javax.swing.JTextField emailfield;
+    private javax.swing.JFileChooser fc;
     private javax.swing.JLabel firstname;
     private javax.swing.JTextField firstnamefield;
     private javax.swing.JLabel gender;
@@ -579,7 +623,6 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
@@ -588,9 +631,10 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lastname;
     public static javax.swing.JTextField lastnamefield;
-    private javax.swing.JLabel lbl_img;
+    private javax.swing.JLabel lblFilename;
+    private javax.swing.JLabel lblImg;
     private javax.swing.JPanel leftside;
-    private javax.swing.JLabel level;
+    private javax.swing.JLabel level1;
     private javax.swing.JComboBox<String> levelcombobox;
     private javax.swing.JButton logout;
     private javax.swing.JLabel middlename;

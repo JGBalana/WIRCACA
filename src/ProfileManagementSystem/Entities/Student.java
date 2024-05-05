@@ -28,6 +28,7 @@ public class Student {
     public final String province;
     public final String city;
     public final String barangay;
+    public final String picture;
     public final int zipcode;
     
 
@@ -50,7 +51,8 @@ public class Student {
             String province,
             String city,
             String barangay,
-            int zipcode
+            int zipcode,
+            String picture
     ) {
         this.id = id;
         this.first_name = first_name;
@@ -71,7 +73,7 @@ public class Student {
         this.city = city;
         this.barangay = barangay;
         this.zipcode= zipcode;
-   
+        this.picture = picture;
            
     }
     
@@ -95,9 +97,8 @@ public class Student {
                 rs.getString("province"),
                 rs.getString("city"),
                 rs.getString("barangay"),
-                rs.getInt("zip_code")
-                
-             
+                rs.getInt("zip_code"),
+                rs.getString("picture")
         );
     }
 }
