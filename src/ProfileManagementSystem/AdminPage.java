@@ -82,6 +82,11 @@ public class AdminPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        btnStudents = new javax.swing.JButton()
+        ;
+        btnAdminManager = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         redbar = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         showDataTable = new javax.swing.JButton();
@@ -94,6 +99,7 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
@@ -101,19 +107,46 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         cbOrder = new javax.swing.JComboBox<>();
         cbDirection = new javax.swing.JComboBox<>();
-        jPanel3 = new javax.swing.JPanel();
-        jButton13 = new javax.swing.JButton();
-        btnStudents = new javax.swing.JButton()
-        ;
-        btnAdminManager = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1500, 900));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(237, 233, 233));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnStudents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/studentdata (1).png"))); // NOI18N
+        btnStudents.setBorder(null);
+        btnStudents.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnStudentsMouseClicked(evt);
+            }
+        });
+        jPanel2.add(btnStudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, 60));
+
+        btnAdminManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/BUTTON VARIATIONS PAKYU (3).png"))); // NOI18N
+        btnAdminManager.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdminManagerMouseClicked(evt);
+            }
+        });
+        jPanel2.add(btnAdminManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 70));
+
+        jButton10.setBackground(new java.awt.Color(204, 204, 204));
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/SHSlogo (1).png"))); // NOI18N
+        jButton10.setBorder(null);
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
 
         redbar.setBackground(new java.awt.Color(123, 21, 20));
         redbar.setForeground(new java.awt.Color(123, 21, 20));
@@ -230,6 +263,11 @@ public class AdminPage extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 890, -1));
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/maroon_logo.png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel2.setText("Search for:");
 
         btnSearch.setText("Search");
@@ -279,42 +317,6 @@ public class AdminPage extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 900, 60));
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton13.setBackground(new java.awt.Color(204, 204, 204));
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/SHSlogo (1).png"))); // NOI18N
-        jButton13.setBorder(null);
-        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton13MouseClicked(evt);
-            }
-        });
-        jPanel3.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 760, -1, -1));
-
-        btnStudents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/studentdata (1).png"))); // NOI18N
-        btnStudents.setBorder(null);
-        btnStudents.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnStudentsMouseClicked(evt);
-            }
-        });
-        jPanel3.add(btnStudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 70, 60));
-
-        btnAdminManager.setBackground(new java.awt.Color(255, 255, 255));
-        btnAdminManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/BUTTON VARIATIONS PAKYU (3).png"))); // NOI18N
-        btnAdminManager.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAdminManagerMouseClicked(evt);
-            }
-        });
-        jPanel3.add(btnAdminManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 70, 70));
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/maroon logo.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -410,11 +412,11 @@ public class AdminPage extends javax.swing.JFrame {
         refreshTable();
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         Homepagee v = new Homepagee();
         v.setVisible (true);
         this.dispose();
-    }//GEN-LAST:event_jButton13MouseClicked
+    }//GEN-LAST:event_jButton10MouseClicked
 
     /**
      * @param args the command line arguments
@@ -468,17 +470,17 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbDirection;
     private javax.swing.JComboBox<String> cbOrder;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;

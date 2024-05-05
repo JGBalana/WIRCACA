@@ -50,6 +50,7 @@ public class StudentDataManagement extends javax.swing.JFrame {
         ;
         button = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         redbar = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         showdata = new javax.swing.JButton();
@@ -102,6 +103,16 @@ public class StudentDataManagement extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jButton10.setBackground(new java.awt.Color(204, 204, 204));
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/SHSlogo (1).png"))); // NOI18N
+        jButton10.setBorder(null);
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 760, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 880));
 
@@ -291,6 +302,12 @@ public class StudentDataManagement extends javax.swing.JFrame {
         redrawTable();
     }//GEN-LAST:event_btnSearchActionPerformed
 
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        Homepagee v = new Homepagee();
+        v.setVisible (true);
+        this.dispose();
+    }//GEN-LAST:event_jButton10MouseClicked
+
    private void redrawTable() {
         try {
             //open connection
@@ -374,6 +391,7 @@ public class StudentDataManagement extends javax.swing.JFrame {
     private javax.swing.JButton button;
     private javax.swing.JComboBox<String> cbDirection;
     private javax.swing.JComboBox<String> cbOrder;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
