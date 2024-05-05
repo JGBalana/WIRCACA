@@ -8,6 +8,7 @@ package ProfileManagementSystem;
 import ProfileManagementSystem.Entities.Student;
 import java.awt.HeadlessException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -310,8 +311,6 @@ public class Profile extends javax.swing.JFrame {
         age.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         age.setText("AGE:");
         jPanel1.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 50, -1));
-
-        agefield.setEditable(false);
         jPanel1.add(agefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 50, 40));
 
         gender.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
@@ -332,7 +331,6 @@ public class Profile extends javax.swing.JFrame {
         schoolidd.setText("SCHOOL ID:");
         jPanel1.add(schoolidd, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 130, 20));
 
-        schoolidfield.setEditable(false);
         schoolidfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 schoolidfieldActionPerformed(evt);
@@ -343,22 +341,17 @@ public class Profile extends javax.swing.JFrame {
         number.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         number.setText("CONTACT INFORMATION:");
         jPanel1.add(number, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, 20));
-
-        numberfield.setEditable(false);
         jPanel1.add(numberfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 220, 40));
 
         email.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         email.setText("EMAIL ADDRESS:");
         jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, -1, 20));
-
-        emailfield.setEditable(false);
         jPanel1.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 310, 40));
 
         schoolg10.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         schoolg10.setText("SCHOOL (G10):");
         jPanel1.add(schoolg10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, 170, 20));
 
-        schoolg10field.setEditable(false);
         schoolg10field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 schoolg10fieldActionPerformed(evt);
@@ -369,39 +362,27 @@ public class Profile extends javax.swing.JFrame {
         address.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         address.setText("PERMANENT ADDRESS:");
         jPanel1.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 300, 20));
-
-        addressfield.setEditable(false);
         jPanel1.add(addressfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 820, 40));
 
         residence.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         residence.setText("RESIDENCE ADDRESS:");
         jPanel1.add(residence, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 270, 20));
-
-        residencefield.setEditable(false);
         jPanel1.add(residencefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 820, 40));
 
         city.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         city.setText("CITY");
         jPanel1.add(city, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 580, -1, 20));
-
-        cityfield.setEditable(false);
         jPanel1.add(cityfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 600, 170, 40));
 
         province.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         province.setText("PROVINCE");
         jPanel1.add(province, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, -1, 20));
-
-        barangayfield.setEditable(false);
         jPanel1.add(barangayfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 600, 170, 40));
 
         barangay.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         barangay.setText("BARANGAY");
         jPanel1.add(barangay, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, -1, 20));
-
-        zipcodfield.setEditable(false);
         jPanel1.add(zipcodfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 600, 170, 40));
-
-        provincefield1.setEditable(false);
         jPanel1.add(provincefield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, 170, 40));
 
         zipcode1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
@@ -505,12 +486,46 @@ public class Profile extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        String sql = "update students set first_name = ?, last_name = ?, middle_name = ? where id = " + this.student.id;
+        String sql = "update students set "
+                + "first_name = ? "
+                + ",last_name = ? "
+                + ",middle_name = ? "
+                + ",strand = ? "
+                + ",level = ? "
+                + ",section = ? "
+                + ",age = ? "
+                + ",gender = ? "
+                + ", birthday= ? "
+                + ",school_id = ? "
+                + ",contact_info = ? "
+                + ",email = ? "
+                + ",permanent_address = ? "
+                + ",present_address = ? "
+                + ",province = ? "
+                + ",city = ? "
+                + ",barangay = ? "
+                + ",zip_code = ? "
+                + " where id = " + this.student.id;
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, firstnamefield.getText());
             pst.setString(2, lastnamefield.getText());
             pst.setString(3, middlenamefield.getText());
+            pst.setString(4, (String) strandcombobox.getSelectedItem());
+            pst.setInt(5, Integer.parseInt(levelcombobox.getSelectedItem().toString()));
+            pst.setInt(6, Integer.parseInt(sectioncombobox.getSelectedItem().toString()));
+            pst.setInt(7, Integer.parseInt(agefield.getText()));
+            pst.setString(8, gendercombobox.getSelectedItem().toString());
+            pst.setDate(9, new Date(birthday.getDate().getTime()));
+            pst.setString(10, schoolidfield.getText());
+            pst.setString(11, numberfield.getText());
+            pst.setString(12, emailfield.getText());
+            pst.setString(13, addressfield.getText());
+            pst.setString(14, residencefield.getText());
+            pst.setString(15, provincefield1.getText());
+            pst.setString(16, cityfield.getText());
+            pst.setString(17, barangayfield.getText());
+            pst.setInt(18, Integer.parseInt(zipcodfield.getText()));
             pst.executeUpdate();
 
             reloadStudent();
