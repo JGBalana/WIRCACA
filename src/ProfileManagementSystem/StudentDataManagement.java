@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.Vector;
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,14 +25,15 @@ import javax.swing.table.DefaultTableModel;
 public class StudentDataManagement extends javax.swing.JFrame {
 
     Connection conn = DbConnection.connect();
+    String filters = "";
 
     /**
      * Creates new form Students
      */
     public StudentDataManagement() {
-
         initComponents();
-        refreshTable();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        redrawTable();
     }
 
     /**
@@ -52,12 +54,20 @@ public class StudentDataManagement extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         showdata = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         uphlogo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         studentTable = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        cbOrder = new javax.swing.JComboBox<>();
+        cbDirection = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,24 +137,14 @@ public class StudentDataManagement extends javax.swing.JFrame {
                 showdataActionPerformed(evt);
             }
         });
-        jPanel7.add(showdata, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 100, 30));
+        jPanel7.add(showdata, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 100, 30));
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Filter Student List by Tags");
         jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 410, -1));
 
-        jButton9.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 12)); // NOI18N
-        jButton9.setText("Select Filters");
-        jButton9.setBorder(null);
-        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton9MouseClicked(evt);
-            }
-        });
-        jPanel7.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 170, 30));
-
-        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 890, 70));
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 900, 70));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
         jLabel1.setText("Student Masterlist");
@@ -156,17 +156,18 @@ public class StudentDataManagement extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        studentTable.setFont(new java.awt.Font("Hoefler Text", 0, 14)); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         studentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id", "first_name", "middle_name", "last_name", "age", "gender", "birthday", "strand", "level", "section", "student_id", "contact_info", "email", "g10school", "permanent_address", "present_address", "city", "province", "zipcode", "barangay"
+                "Id", "First Name", "Middle Name", "Last Name", "Age", "Gender", "Student Id", "Strand", "Level", "Section", "Birthday", "Phone Number", "Email", "Present Address"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -175,7 +176,78 @@ public class StudentDataManagement extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(studentTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 1300, 620));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1534, Short.MAX_VALUE)
+                .addGap(52, 52, 52))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        jScrollPane2.setViewportView(jPanel3);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 900, 470));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setText("Search for:");
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Order by:");
+
+        cbOrder.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "First_Name", "Last_Name", "Strand", "Level", "Section" }));
+
+        cbDirection.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbDirection, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addComponent(btnSearch)
+                .addGap(15, 15, 15))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch)
+                    .addComponent(jLabel3)
+                    .addComponent(cbOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbDirection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 900, 60));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 1440, 880));
 
@@ -204,22 +276,26 @@ public class StudentDataManagement extends javax.swing.JFrame {
 
     }//GEN-LAST:event_showdataMouseClicked
 
-    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9MouseClicked
-
     private void showdataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showdataActionPerformed
-        refreshTable();
+        redrawTable();
     }//GEN-LAST:event_showdataActionPerformed
 
-    private void refreshTable() {
-        // TODO add your handling code here:
-        // database connection
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        filters = "where "
+                + "first_name like '%" + txtSearch.getText() + "%'";
+        filters += "or strand like '%" + txtSearch.getText() + "%'";
+        filters += "or last_name like '%" + txtSearch.getText() + "%'";
+        filters += "or gender like '" + txtSearch.getText() + "%'";
+        filters += "order by " + cbOrder.getSelectedItem().toString()+ " " + cbDirection.getSelectedItem().toString();
+        // order by id desc
+        redrawTable();
+    }//GEN-LAST:event_btnSearchActionPerformed
 
+   private void redrawTable() {
         try {
             //open connection
             Statement stmt = conn.createStatement();
-            String query = "SELECT * FROM students";
+            String query = "SELECT * FROM students " + filters;
             ResultSet rs = stmt.executeQuery(query);
             DefaultTableModel tblModel = (DefaultTableModel) studentTable.getModel();
             tblModel.setRowCount(0);
@@ -237,13 +313,7 @@ public class StudentDataManagement extends javax.swing.JFrame {
                 String student_id = rs.getString("school_id");
                 String contact_info = rs.getString("contact_info");
                 String email = rs.getString("email");
-                String g10school = rs.getString("former_school");
-                String permanent_address = rs.getString("permanent_address");
                 String residence = rs.getString("present_address");
-                String city = rs.getString("city");
-                String province = rs.getString("province");
-                String zipcode = String.valueOf(rs.getInt("zip_code"));
-                String barangay = rs.getString("barangay");
 
                 String tbData[] = {
                     id, first_name, middle_name, last_name, age, gender, birthday, strand,
@@ -252,7 +322,7 @@ public class StudentDataManagement extends javax.swing.JFrame {
                     student_id,
                     contact_info,
                     email,
-                    g10school, permanent_address, residence, city, province, zipcode, barangay
+                    residence
                 };
 
                 tblModel.addRow(tbData);
@@ -300,19 +370,27 @@ public class StudentDataManagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton button;
+    private javax.swing.JComboBox<String> cbDirection;
+    private javax.swing.JComboBox<String> cbOrder;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel redbar;
     private javax.swing.JButton showdata;
     private javax.swing.JTable studentTable;
+    private javax.swing.JTextField txtSearch;
     public static javax.swing.JLabel uphlogo;
     // End of variables declaration//GEN-END:variables
 }
