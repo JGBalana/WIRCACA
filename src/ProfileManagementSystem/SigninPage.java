@@ -25,12 +25,12 @@ import static javax.swing.JOptionPane.showMessageDialog;
  *
  * @author geral
  */
-public class sigin extends javax.swing.JFrame {
+public class SigninPage extends javax.swing.JFrame {
 
     /**
      * Creates new form sigin
      */
-    public sigin() {
+    public SigninPage() {
         initComponents();
     }
 
@@ -97,7 +97,7 @@ public class sigin extends javax.swing.JFrame {
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(null);
 
-        hide1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/hide.png"))); // NOI18N
+        hide1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/hide.png"))); // NOI18N
         hide1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hide1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -110,7 +110,7 @@ public class sigin extends javax.swing.JFrame {
         jPanel2.add(hide1);
         hide1.setBounds(480, 390, 40, 30);
 
-        open1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/openn.png"))); // NOI18N
+        open1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/openn.png"))); // NOI18N
         open1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 open1MousePressed(evt);
@@ -157,7 +157,7 @@ public class sigin extends javax.swing.JFrame {
         jPanel2.add(txtPassword);
         txtPassword.setBounds(60, 380, 470, 50);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/UPH Header -2 (1).png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/UPH-HEADER-YELLOW.png"))); // NOI18N
         jPanel2.add(jLabel8);
         jLabel8.setBounds(70, 30, 470, 150);
 
@@ -165,11 +165,14 @@ public class sigin extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("No student account yet?");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(150, 620, 230, 20);
+        jLabel9.setBounds(140, 620, 230, 20);
 
+        signup.setBackground(new java.awt.Color(153, 0, 0));
         signup.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 14)); // NOI18N
+        signup.setForeground(new java.awt.Color(252, 203, 10));
         signup.setText("Sign Up");
-        signup.setBorder(null);
+        signup.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        signup.setBorderPainted(false);
         signup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 signupMouseClicked(evt);
@@ -180,7 +183,7 @@ public class sigin extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 590, 680));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/STUDENT-PROFILE MANAGEMENT SYSTEM DESIGN.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/bgperps.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 2090, 1120));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 900));
@@ -277,20 +280,21 @@ public class sigin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(sigin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SigninPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(sigin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SigninPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(sigin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SigninPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(sigin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SigninPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new sigin().setVisible(true);
+                new SigninPage().setVisible(true);
             }
         });
     }

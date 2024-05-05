@@ -186,7 +186,7 @@ public class Attendance2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        sigin v = new sigin();
+        SigninPage v = new SigninPage();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked

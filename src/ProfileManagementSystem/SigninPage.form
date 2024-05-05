@@ -64,7 +64,7 @@
             <Component class="javax.swing.JLabel" name="hide1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/ProfileManagementSystem/hide.png"/>
+                  <Image iconType="3" name="/ProfileManagementSystem/photos/hide.png"/>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Default Cursor"/>
@@ -83,7 +83,7 @@
             <Component class="javax.swing.JLabel" name="open1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/ProfileManagementSystem/openn.png"/>
+                  <Image iconType="3" name="/ProfileManagementSystem/photos/openn.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -186,7 +186,7 @@
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/ProfileManagementSystem/UPH Header -2 (1).png"/>
+                  <Image iconType="3" name="/ProfileManagementSystem/photos/UPH-HEADER-YELLOW.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -207,19 +207,28 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="620" width="230" height="20"/>
+                  <AbsoluteConstraints x="140" y="620" width="230" height="20"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="signup">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="99" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Franklin Gothic Demi Cond" size="14" style="0"/>
                 </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="a" green="cb" red="fc" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Sign Up"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
+                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                    <EmptyBorder/>
+                  </Border>
                 </Property>
+                <Property name="borderPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="signupMouseClicked"/>
@@ -235,7 +244,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/ProfileManagementSystem/STUDENT-PROFILE MANAGEMENT SYSTEM DESIGN.png"/>
+              <Image iconType="3" name="/ProfileManagementSystem/photos/bgperps.png"/>
             </Property>
           </Properties>
           <Constraints>
