@@ -93,6 +93,8 @@ public class Profile extends javax.swing.JFrame {
         papaoccupationfield = new javax.swing.JTextField();
         numberpapa = new javax.swing.JLabel();
         papanumber = new javax.swing.JTextField();
+        provincefield1 = new javax.swing.JTextField();
+        zipcode1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,7 +128,7 @@ public class Profile extends javax.swing.JFrame {
 
         title.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         title.setText("Student Information");
-        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 230, 30));
+        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 260, 30));
         getContentPane().add(uphdlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
 
         barforedit.setBackground(new java.awt.Color(153, 0, 0));
@@ -290,11 +292,11 @@ public class Profile extends javax.swing.JFrame {
         jPanel1.add(bday, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 20));
 
         birthday.setDateFormatString("MM/dd/YYYY");
-        jPanel1.add(birthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 190, 40));
+        jPanel1.add(birthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 260, 40));
 
         schoolidd.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         schoolidd.setText("SCHOOL ID:");
-        jPanel1.add(schoolidd, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 130, 20));
+        jPanel1.add(schoolidd, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 130, 20));
 
         schoolidfield.setEditable(false);
         schoolidfield.addActionListener(new java.awt.event.ActionListener() {
@@ -302,25 +304,25 @@ public class Profile extends javax.swing.JFrame {
                 schoolidfieldActionPerformed(evt);
             }
         });
-        jPanel1.add(schoolidfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 240, 40));
+        jPanel1.add(schoolidfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 270, 40));
 
         number.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         number.setText("CONTACT INFORMATION:");
         jPanel1.add(number, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         numberfield.setEditable(false);
-        jPanel1.add(numberfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 210, 40));
+        jPanel1.add(numberfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 220, 40));
 
         email.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         email.setText("EMAIL ADDRESS:");
-        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
+        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, -1, -1));
 
         emailfield.setEditable(false);
-        jPanel1.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 310, 40));
+        jPanel1.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 310, 40));
 
         schoolg10.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         schoolg10.setText("SCHOOL (G10):");
-        jPanel1.add(schoolg10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 130, 20));
+        jPanel1.add(schoolg10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 170, 20));
 
         schoolg10field.setEditable(false);
         schoolg10field.addActionListener(new java.awt.event.ActionListener() {
@@ -356,14 +358,14 @@ public class Profile extends javax.swing.JFrame {
         jPanel1.add(province, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 630, -1, -1));
 
         provincefield.setEditable(false);
-        jPanel1.add(provincefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 650, 170, 40));
+        jPanel1.add(provincefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 650, 170, 40));
 
         zipcode.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        zipcode.setText("ZIP CODE");
+        zipcode.setText("BARANGAY");
         jPanel1.add(zipcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 630, -1, -1));
 
         zipcodfield.setEditable(false);
-        jPanel1.add(zipcodfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 650, 170, 40));
+        jPanel1.add(zipcodfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 650, 170, 40));
 
         mothername.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         mothername.setText("MOTHER'S FULL NAME");
@@ -406,6 +408,13 @@ public class Profile extends javax.swing.JFrame {
 
         papanumber.setEditable(false);
         jPanel1.add(papanumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 840, 190, 40));
+
+        provincefield1.setEditable(false);
+        jPanel1.add(provincefield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 650, 170, 40));
+
+        zipcode1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        zipcode1.setText("ZIP CODE");
+        jPanel1.add(zipcode1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 630, -1, -1));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -577,6 +586,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JTextField papaoccupationfield;
     private javax.swing.JLabel province;
     private javax.swing.JTextField provincefield;
+    private javax.swing.JTextField provincefield1;
     private javax.swing.JPanel redbar;
     private javax.swing.JLabel residence;
     private javax.swing.JTextField residencefield;
@@ -591,6 +601,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel title;
     private javax.swing.JLabel uphdlogo;
     private javax.swing.JLabel zipcode;
+    private javax.swing.JLabel zipcode1;
     private javax.swing.JTextField zipcodfield;
     // End of variables declaration//GEN-END:variables
 }
