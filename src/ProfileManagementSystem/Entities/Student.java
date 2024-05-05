@@ -20,6 +20,7 @@ public class Student {
     public final int section;
     public final Date birthday;
     public final String school_id;
+    
 
     public Student(
             int id,
