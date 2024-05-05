@@ -18,13 +18,9 @@ import java.util.logging.Logger;
  */
 public class HomePage extends javax.swing.JFrame {
 
-    public int studentId;
-    ResultSet rsStudent;
-    Student student;
+    public static int studentId;
+    public static Student student;
 
-    /**
-     * Creates new form HomePage
-     */
     public HomePage() {
         initComponents();
     }
@@ -33,10 +29,9 @@ public class HomePage extends javax.swing.JFrame {
         try {
             String sql = "select * from students where id = ?";
             PreparedStatement st = DbConnection.connect().prepareStatement(sql);
-            st.setInt(1, this.studentId);
+            st.setInt(1, studentId);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                this.rsStudent = rs;
                 student = Student.fromResultSet(rs);
                 lblUser.setText(student.first_name + " " + student.last_name);
             }
@@ -194,8 +189,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void btnProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMouseClicked
-        Profile v = new Profile(student);
-        v.setVisible(true);
+        
     }//GEN-LAST:event_btnProfileMouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
@@ -222,7 +216,8 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9MouseClicked
 
     private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
-        // TODO add your handling code here:
+        Profile v = new Profile();
+        v.setVisible(true);
     }//GEN-LAST:event_btnProfileActionPerformed
 
     /**

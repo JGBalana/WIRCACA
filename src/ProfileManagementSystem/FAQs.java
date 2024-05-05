@@ -5,6 +5,8 @@
  */
 package ProfileManagementSystem;
 
+import ProfileManagementSystem.Entities.Student;
+
 /**
  *
  * @author geral
@@ -16,6 +18,10 @@ public class FAQs extends javax.swing.JFrame {
      */
     public FAQs() {
         initComponents();
+    }
+
+    FAQs(Student student) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**

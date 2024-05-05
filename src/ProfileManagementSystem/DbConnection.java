@@ -6,6 +6,7 @@ package ProfileManagementSystem;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,5 +27,9 @@ class DbConnection {
         }
         
         return null;
+    }
+
+    public static ResultSet executeQuery(String sql) throws SQLException {
+        return connect().createStatement().executeQuery(sql);
     }
 }

@@ -5,11 +5,15 @@
  */
 package ProfileManagementSystem;
 
+import ProfileManagementSystem.Entities.Student;
+
 /**
  *
  * @author geral
  */
 public class Schedule extends javax.swing.JFrame {
+
+    public Student student;
 
     /**
      * Creates new form Schedule
@@ -215,43 +219,43 @@ public class Schedule extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         SigninPage v = new SigninPage();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-    Schedule2 v = new Schedule2();
-    v.setVisible(true);
-    this.dispose();
+        Schedule2 v = new Schedule2();
+        v.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         FAQs v = new FAQs();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         Attendancee1 v = new Attendancee1();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         Schedule v = new Schedule();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         Profile v = new Profile();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         HomePage v = new HomePage();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton10MouseClicked
 

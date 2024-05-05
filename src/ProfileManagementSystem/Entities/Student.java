@@ -20,6 +20,15 @@ public class Student {
     public final int section;
     public final Date birthday;
     public final String school_id;
+    public final String contact_info;
+    public final String email;
+    public final String g10school;
+    public final String permanent_address;
+    public final String residence;
+    public final String province;
+    public final String city;
+    public final String barangay;
+    public final int zipcode;
     
 
     public Student(
@@ -32,7 +41,16 @@ public class Student {
             int level,
             int section,
             Date birthday,
-            String school_id
+            String school_id,
+            String contact_info,
+            String email,
+            String g10school,
+            String permanent_address,
+            String residence,
+            String province,
+            String city,
+            String barangay,
+            int zipcode
     ) {
         this.id = id;
         this.first_name = first_name;
@@ -44,7 +62,17 @@ public class Student {
         this.section = section;
         this.birthday = birthday;
         this.school_id = school_id;
-        
+        this.contact_info = contact_info;
+        this.email = email;
+        this.g10school = g10school;
+        this.permanent_address = permanent_address;
+        this.residence = residence;
+        this.province = province;
+        this.city = city;
+        this.barangay = barangay;
+        this.zipcode= zipcode;
+   
+           
     }
     
     public static Student fromResultSet(ResultSet rs) throws SQLException {
@@ -58,7 +86,18 @@ public class Student {
                 rs.getInt("level"),
                 rs.getInt("section"),
                 rs.getDate("birthday"),
-                rs.getString("school_id")
+                rs.getString("school_id"),
+                rs.getString("contact_info"),
+                rs.getString("email"),
+                rs.getString("former_school"),
+                rs.getString("permanent_address"),
+                rs.getString("present_address"),
+                rs.getString("province"),
+                rs.getString("city"),
+                rs.getString("barangay"),
+                rs.getInt("zip_code")
+                
+             
         );
     }
 }

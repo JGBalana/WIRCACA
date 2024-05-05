@@ -503,8 +503,8 @@ public class SignupPage extends javax.swing.JFrame {
                     
                     showMessageDialog(null, "Account created successfully");
 
-                    HomePage home = new HomePage();
-                    home.setVisible(true);
+                    SigninPage v = new SigninPage();
+                    v.setVisible(true);
                     this.dispose();
                 }
             }

@@ -6,6 +6,15 @@
 package ProfileManagementSystem;
 
 import ProfileManagementSystem.Entities.Student;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,22 +23,16 @@ import ProfileManagementSystem.Entities.Student;
 public class Profile extends javax.swing.JFrame {
 
     public Student student;
+    Connection conn;
 
     public Profile() {
         initComponents();
-    }
+        this.student = HomePage.student;
+        conn = DbConnection.connect();
 
-    /**
-     * Creates new form Profile
-     *
-     * @param student
-     */
-    public Profile(Student student) {
-        initComponents();
-        this.student = student;
         loadStudentData();
     }
-    
+
     public void loadStudentData() {
         firstnamefield.setText(student.first_name);
         lastnamefield.setText(student.last_name);
@@ -40,6 +43,15 @@ public class Profile extends javax.swing.JFrame {
         sectioncombobox.setSelectedItem(String.valueOf(student.section));
         birthday.setDate(student.birthday);
         schoolidfield.setText(student.school_id);
+        numberfield.setText(student.contact_info);
+        emailfield.setText(student.email);
+        schoolg10field.setText(student.g10school);
+        addressfield.setText(student.permanent_address);
+        residencefield.setText(student.residence);
+        provincefield1.setText(student.province);
+        cityfield.setText(student.city);
+        barangayfield.setText(student.barangay);
+        zipcodfield.setText(String.valueOf(student.zipcode));
     }
 
     /**
@@ -57,7 +69,7 @@ public class Profile extends javax.swing.JFrame {
         uphdlogo = new javax.swing.JLabel();
         barforedit = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        editdetails = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         leftside = new javax.swing.JPanel();
         homebutt = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton()
@@ -105,18 +117,6 @@ public class Profile extends javax.swing.JFrame {
         barangayfield = new javax.swing.JTextField();
         barangay = new javax.swing.JLabel();
         zipcodfield = new javax.swing.JTextField();
-        mothername = new javax.swing.JLabel();
-        mamafullname = new javax.swing.JTextField();
-        mamaocc = new javax.swing.JLabel();
-        mamaoccupationfield = new javax.swing.JTextField();
-        numbermama = new javax.swing.JLabel();
-        mamanumber = new javax.swing.JTextField();
-        papaname = new javax.swing.JLabel();
-        papafullname = new javax.swing.JTextField();
-        papaoccupation = new javax.swing.JLabel();
-        papaoccupationfield = new javax.swing.JTextField();
-        numberpapa = new javax.swing.JLabel();
-        papanumber = new javax.swing.JTextField();
         provincefield1 = new javax.swing.JTextField();
         zipcode1 = new javax.swing.JLabel();
         lbl_img = new javax.swing.JLabel();
@@ -166,14 +166,19 @@ public class Profile extends javax.swing.JFrame {
         jLabel3.setText("Currently viewing profile");
         barforedit.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 18, 225, -1));
 
-        editdetails.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 12)); // NOI18N
-        editdetails.setText("Edit Details");
-        editdetails.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSave.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 12)); // NOI18N
+        btnSave.setText("Save Profile");
+        btnSave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editdetailsMouseClicked(evt);
+                btnSaveMouseClicked(evt);
             }
         });
-        barforedit.add(editdetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 110, -1));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+        barforedit.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 110, -1));
 
         getContentPane().add(barforedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 970, 60));
 
@@ -248,7 +253,6 @@ public class Profile extends javax.swing.JFrame {
         NAME1.setText("NAME:");
         jPanel1.add(NAME1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
 
-        firstnamefield.setEditable(false);
         firstnamefield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstnamefieldActionPerformed(evt);
@@ -256,7 +260,6 @@ public class Profile extends javax.swing.JFrame {
         });
         jPanel1.add(firstnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 170, 40));
 
-        middlenamefield.setEditable(false);
         middlenamefield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 middlenamefieldActionPerformed(evt);
@@ -264,7 +267,6 @@ public class Profile extends javax.swing.JFrame {
         });
         jPanel1.add(middlenamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 170, 40));
 
-        lastnamefield.setEditable(false);
         lastnamefield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastnamefieldActionPerformed(evt);
@@ -399,48 +401,6 @@ public class Profile extends javax.swing.JFrame {
         zipcodfield.setEditable(false);
         jPanel1.add(zipcodfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 600, 170, 40));
 
-        mothername.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        mothername.setText("MOTHER'S FULL NAME");
-        jPanel1.add(mothername, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 680, -1, 20));
-
-        mamafullname.setEditable(false);
-        jPanel1.add(mamafullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 700, 320, 40));
-
-        mamaocc.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        mamaocc.setText("OCCUPATION");
-        jPanel1.add(mamaocc, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 680, -1, 20));
-
-        mamaoccupationfield.setEditable(false);
-        jPanel1.add(mamaoccupationfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 700, 190, 40));
-
-        numbermama.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        numbermama.setText("CONTACT NUMBER:");
-        jPanel1.add(numbermama, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 680, -1, 20));
-
-        mamanumber.setEditable(false);
-        jPanel1.add(mamanumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 700, 190, 40));
-
-        papaname.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        papaname.setText("FATHER'S FULL NAME");
-        jPanel1.add(papaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 770, -1, 20));
-
-        papafullname.setEditable(false);
-        jPanel1.add(papafullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 790, 320, 40));
-
-        papaoccupation.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        papaoccupation.setText("OCCUPATION");
-        jPanel1.add(papaoccupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 770, -1, 20));
-
-        papaoccupationfield.setEditable(false);
-        jPanel1.add(papaoccupationfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 790, 190, 40));
-
-        numberpapa.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        numberpapa.setText("CONTACT NUMBER:");
-        jPanel1.add(numberpapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 770, -1, 20));
-
-        papanumber.setEditable(false);
-        jPanel1.add(papanumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 790, 190, 40));
-
         provincefield1.setEditable(false);
         jPanel1.add(provincefield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, 170, 40));
 
@@ -474,11 +434,11 @@ public class Profile extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_logoutMouseClicked
 
-    private void editdetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editdetailsMouseClicked
+    private void btnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseClicked
         EditProfile v = new EditProfile();
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_editdetailsMouseClicked
+    }//GEN-LAST:event_btnSaveMouseClicked
 
     private void homebuttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homebuttMouseClicked
         HomePage v = new HomePage();
@@ -544,6 +504,35 @@ public class Profile extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        String sql = "update students set first_name = ?, last_name = ?, middle_name = ? where id = " + this.student.id;
+        try {
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, firstnamefield.getText());
+            pst.setString(2, lastnamefield.getText());
+            pst.setString(3, middlenamefield.getText());
+            pst.executeUpdate();
+
+            reloadStudent();
+
+            JOptionPane.showMessageDialog(null, "Profile Successfully Updated!");
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void reloadStudent() {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("select * from students where id = " + HomePage.studentId);
+            if (rs.next()) {
+                HomePage.student = Student.fromResultSet(rs);
+                this.student = HomePage.student;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -561,9 +550,9 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JPanel barforedit;
     private javax.swing.JLabel bday;
     private com.toedter.calendar.JDateChooser birthday;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel city;
     private javax.swing.JTextField cityfield;
-    private javax.swing.JButton editdetails;
     private javax.swing.JLabel email;
     private javax.swing.JTextField emailfield;
     private javax.swing.JLabel firstname;
@@ -589,22 +578,10 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel level;
     private javax.swing.JComboBox<String> levelcombobox;
     private javax.swing.JButton logout;
-    private javax.swing.JTextField mamafullname;
-    private javax.swing.JTextField mamanumber;
-    private javax.swing.JLabel mamaocc;
-    private javax.swing.JTextField mamaoccupationfield;
     private javax.swing.JLabel middlename;
     public static javax.swing.JTextField middlenamefield;
-    private javax.swing.JLabel mothername;
     private javax.swing.JLabel number;
     private javax.swing.JTextField numberfield;
-    private javax.swing.JLabel numbermama;
-    private javax.swing.JLabel numberpapa;
-    private javax.swing.JTextField papafullname;
-    private javax.swing.JLabel papaname;
-    private javax.swing.JTextField papanumber;
-    private javax.swing.JLabel papaoccupation;
-    private javax.swing.JTextField papaoccupationfield;
     private javax.swing.JLabel province;
     private javax.swing.JTextField provincefield1;
     private javax.swing.JPanel redbar;

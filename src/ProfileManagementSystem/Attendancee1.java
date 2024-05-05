@@ -5,6 +5,8 @@
  */
 package ProfileManagementSystem;
 
+import ProfileManagementSystem.Entities.Student;
+
 /**
  *
  * @author geral
