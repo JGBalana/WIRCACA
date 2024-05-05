@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import static java.awt.GridBagConstraints.BOTH;
 import javax.swing.BorderFactory;
 import java.awt.RenderingHints;
 import java.sql.Connection;
@@ -21,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import javax.print.attribute.standard.DateTimeAtCompleted;
+import javax.swing.JFrame;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
@@ -34,6 +36,7 @@ public class signup2 extends javax.swing.JFrame {
      */
     public signup2() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -124,6 +127,7 @@ public class signup2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Student-Profile SignUp");
         setMinimumSize(new java.awt.Dimension(1500, 900));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -141,8 +145,8 @@ public class signup2 extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 790, 110, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/UPH Header -2 (1).png"))); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/UPH-HEADER-YELLOW.png"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 390, 180));
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -358,11 +362,11 @@ public class signup2 extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 910, 590));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/STUDENT-PROFILE MANAGEMENT SYSTEM DESIGN.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/bgperps.png"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(1500, 900));
         jLabel2.setMinimumSize(new java.awt.Dimension(1500, 900));
         jLabel2.setPreferredSize(new java.awt.Dimension(1500, 900));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 900));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -130, 1760, 1090));
 
         pack();
         setLocationRelativeTo(null);
