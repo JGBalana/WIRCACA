@@ -28,7 +28,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author geral
  */
-public class Profile extends javax.swing.JFrame {
+public final class Profile extends javax.swing.JFrame {
 
     public Student student;
     Connection conn;
@@ -79,8 +79,6 @@ public class Profile extends javax.swing.JFrame {
 
         fc = new javax.swing.JFileChooser();
         redbar = new javax.swing.JPanel();
-        logout = new javax.swing.JButton();
-        title = new javax.swing.JLabel();
         uphdlogo = new javax.swing.JLabel();
         barforedit = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -138,8 +136,12 @@ public class Profile extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         level1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        logout = new javax.swing.JButton();
+        title = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 255, 255));
         setResizable(false);
         setSize(new java.awt.Dimension(1500, 900));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -159,18 +161,6 @@ public class Profile extends javax.swing.JFrame {
         );
 
         getContentPane().add(redbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1520, 40));
-
-        logout.setText("Logout");
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
-            }
-        });
-        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 70, -1, -1));
-
-        title.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        title.setText("Student Information");
-        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 260, 30));
         getContentPane().add(uphdlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
 
         barforedit.setBackground(new java.awt.Color(153, 0, 0));
@@ -195,7 +185,7 @@ public class Profile extends javax.swing.JFrame {
         });
         barforedit.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 110, -1));
 
-        getContentPane().add(barforedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 970, 60));
+        getContentPane().add(barforedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 970, 60));
 
         leftside.setBackground(new java.awt.Color(255, 255, 255));
         leftside.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -260,6 +250,7 @@ public class Profile extends javax.swing.JFrame {
         getContentPane().add(leftside, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
 
         //newest pa sa newest
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(912, 1007));
         jPanel1.setPreferredSize(new java.awt.Dimension(912, 1007));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -419,10 +410,48 @@ public class Profile extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 970, 560));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 970, 560));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/maroon logo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
+
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+
+        logout.setText("Logout");
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+        });
+
+        title.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        title.setText("Student Information");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(492, Short.MAX_VALUE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(286, 286, 286)
+                .addComponent(logout)
+                .addGap(250, 250, 250))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(title))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(logout)))
+                .addContainerGap(766, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 1360, 860));
 
         pack();
         setLocationRelativeTo(null);
@@ -435,9 +464,7 @@ public class Profile extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutMouseClicked
 
     private void btnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseClicked
-        EditProfile v = new EditProfile();
-        v.setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_btnSaveMouseClicked
 
     private void homebuttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homebuttMouseClicked
@@ -628,6 +655,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lastname;
     public static javax.swing.JTextField lastnamefield;

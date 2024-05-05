@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author geral
  */
-public class HomePage extends javax.swing.JFrame {
+public final class HomePage extends javax.swing.JFrame {
 
     public static int studentId;
     public static Student student;
@@ -70,6 +70,7 @@ public class HomePage extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1500, 900));
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(1500, 900));
         jPanel1.setPreferredSize(new java.awt.Dimension(1500, 900));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -149,7 +150,7 @@ public class HomePage extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 120, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 120, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/maroon logo.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
@@ -165,8 +166,9 @@ public class HomePage extends javax.swing.JFrame {
         jLabel5.setText("Open one of the menus on the left-side bar to get started.");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 720, -1, 20));
 
+        lblUser.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblUser.setText("{User Name}");
-        jPanel1.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(1012, 120, 160, -1));
+        jPanel1.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 120, 210, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
