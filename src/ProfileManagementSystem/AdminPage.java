@@ -28,6 +28,8 @@ public class AdminPage extends javax.swing.JFrame {
     Connection conn = null;
     PreparedStatement pst = null;
     ResultSet rsx = null;
+    
+    String filters = "";
 
     /**
      * Creates new form ADMIN_PAGE
@@ -42,7 +44,8 @@ public class AdminPage extends javax.swing.JFrame {
         try {
             //open connection
             Statement stmt = conn.createStatement();
-            String query = "SELECT * FROM users";
+            String query = "SELECT * FROM users " + filters;
+
             ResultSet rs = stmt.executeQuery(query);
             DefaultTableModel tblModel = (DefaultTableModel) userTable.getModel();
             tblModel.setRowCount(0);
@@ -97,6 +100,13 @@ public class AdminPage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        cbOrder = new javax.swing.JComboBox<>();
+        cbDirection = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -250,10 +260,62 @@ public class AdminPage extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(userTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 890, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 890, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/maroon_logo.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setText("Search for:");
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Order by:");
+
+        cbOrder.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Name", "Username", "Is_Admin" }));
+
+        cbDirection.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asc", "Desc" }));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbDirection, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addComponent(btnSearch)
+                .addGap(15, 15, 15))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch)
+                    .addComponent(jLabel3)
+                    .addComponent(cbOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbDirection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 900, 60));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -343,6 +405,18 @@ public class AdminPage extends javax.swing.JFrame {
         page.setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        filters = "where "
+        + "name like '%" + txtSearch.getText() + "%'";
+        filters += "or username like '%" + txtSearch.getText() + "%'";
+        filters += "or id like '" + txtSearch.getText() + "'";
+        filters += " order by " + cbOrder.getSelectedItem().toString()+ " " + cbDirection.getSelectedItem().toString();
+        
+        // order by id desc
+        //123 - 2 = 2
+        refreshTable();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -390,21 +464,28 @@ public class AdminPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAdminManager;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnStudents;
+    private javax.swing.JComboBox<String> cbDirection;
+    private javax.swing.JComboBox<String> cbOrder;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel redbar;
     private javax.swing.JButton showDataTable;
+    private javax.swing.JTextField txtSearch;
     private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
 }
