@@ -33,13 +33,13 @@ public class studentdataadmin extends javax.swing.JFrame {
         ;
         jButton3 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         redbar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -56,7 +56,7 @@ public class studentdataadmin extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 70, 60));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 70, 60));
 
         jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\adminmanager (1).png")); // NOI18N
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -64,7 +64,7 @@ public class studentdataadmin extends javax.swing.JFrame {
                 jButton3MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 60));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 70, 60));
 
         jButton10.setBackground(new java.awt.Color(204, 204, 204));
         jButton10.setBorder(null);
@@ -75,15 +75,15 @@ public class studentdataadmin extends javax.swing.JFrame {
         });
         jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jButton16.setBackground(new java.awt.Color(204, 204, 204));
-        jButton16.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\SHSlogo (1).png")); // NOI18N
-        jButton16.setBorder(null);
-        jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton13.setBackground(new java.awt.Color(204, 204, 204));
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/SHSlogo (1).png"))); // NOI18N
+        jButton13.setBorder(null);
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton16MouseClicked(evt);
+                jButton13MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        jPanel2.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 760, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
 
@@ -246,8 +246,8 @@ public class studentdataadmin extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 550, 510));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\geral\\Downloads\\maroon logo.png")); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/maroon logo.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -292,17 +292,17 @@ public class studentdataadmin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton10MouseClicked
 
-    private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
-        Homepagee v = new Homepagee();
-        v.setVisible (true);
-        this.dispose();
-    }//GEN-LAST:event_jButton16MouseClicked
-
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         SigninPage v = new SigninPage();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        Homepagee v = new Homepagee();
+        v.setVisible (true);
+        this.dispose();
+    }//GEN-LAST:event_jButton13MouseClicked
 
     /**
      * @param args the command line arguments
@@ -342,11 +342,11 @@ public class studentdataadmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
