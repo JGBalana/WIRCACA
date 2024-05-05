@@ -35,12 +35,13 @@ public class Profile extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         editdetails = new javax.swing.JButton();
         leftside = new javax.swing.JPanel();
-        profile = new javax.swing.JButton()
-        ;
-        schedule = new javax.swing.JButton();
-        attendance = new javax.swing.JButton();
-        FAQs = new javax.swing.JButton();
         homebutt = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton()
+        ;
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         NAME1 = new javax.swing.JLabel();
@@ -149,35 +150,6 @@ public class Profile extends javax.swing.JFrame {
         leftside.setBackground(new java.awt.Color(255, 255, 255));
         leftside.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profile.setBorder(null);
-        profile.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                profileMouseClicked(evt);
-            }
-        });
-        leftside.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, 70));
-
-        schedule.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                scheduleMouseClicked(evt);
-            }
-        });
-        leftside.add(schedule, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 80, -1));
-
-        attendance.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                attendanceMouseClicked(evt);
-            }
-        });
-        leftside.add(attendance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 100, -1));
-
-        FAQs.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                FAQsMouseClicked(evt);
-            }
-        });
-        leftside.add(FAQs, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, 80, 60));
-
         homebutt.setBackground(new java.awt.Color(204, 204, 204));
         homebutt.setBorder(null);
         homebutt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,6 +158,49 @@ public class Profile extends javax.swing.JFrame {
             }
         });
         leftside.add(homebutt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/profileredbutton (1).png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        leftside.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, 70));
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/SCHED-removebg-preview (1).png"))); // NOI18N
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        leftside.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 80, -1));
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/attendance-removebg-preview (1).png"))); // NOI18N
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        leftside.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 100, -1));
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/FAQs-removebg-preview (1).png"))); // NOI18N
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+        leftside.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, 80, 60));
+
+        jButton9.setBackground(new java.awt.Color(204, 204, 204));
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/SHSlogo (1).png"))); // NOI18N
+        jButton9.setBorder(null);
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+        leftside.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 760, -1, -1));
 
         getContentPane().add(leftside, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
 
@@ -411,30 +426,6 @@ public class Profile extends javax.swing.JFrame {
     this.dispose();
     }//GEN-LAST:event_editdetailsMouseClicked
 
-    private void profileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseClicked
-        Profile v = new Profile();
-        v.setVisible (true);
-        this.dispose();
-    }//GEN-LAST:event_profileMouseClicked
-
-    private void scheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scheduleMouseClicked
-        Schedule v = new Schedule();
-        v.setVisible (true);
-        this.dispose();
-    }//GEN-LAST:event_scheduleMouseClicked
-
-    private void attendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attendanceMouseClicked
-        Attendancee1 v = new Attendancee1();
-        v.setVisible (true);
-        this.dispose();
-    }//GEN-LAST:event_attendanceMouseClicked
-
-    private void FAQsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FAQsMouseClicked
-        FAQs v = new FAQs();
-        v.setVisible (true);
-        this.dispose();
-    }//GEN-LAST:event_FAQsMouseClicked
-
     private void homebuttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homebuttMouseClicked
         Homepagee v = new Homepagee();
         v.setVisible (true);
@@ -464,6 +455,36 @@ public class Profile extends javax.swing.JFrame {
     private void strandcomboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strandcomboboxActionPerformed
     
     }//GEN-LAST:event_strandcomboboxActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        Profile v = new Profile();
+        v.setVisible (true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        Schedule v = new Schedule();
+        v.setVisible (true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        Attendancee1 v = new Attendancee1();
+        v.setVisible (true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        FAQs v = new FAQs();
+        v.setVisible (true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        Homepagee v = new Homepagee();
+        v.setVisible (true);
+        this.dispose();
+    }//GEN-LAST:event_jButton9MouseClicked
 
     /**
      * @param args the command line arguments
@@ -501,13 +522,11 @@ public class Profile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton FAQs;
     private javax.swing.JLabel NAME1;
     private javax.swing.JLabel address;
     private javax.swing.JTextField addressfield;
     private javax.swing.JLabel age;
     private javax.swing.JTextField agefield;
-    private javax.swing.JButton attendance;
     private javax.swing.JPanel barforedit;
     private javax.swing.JLabel bday;
     private com.toedter.calendar.JDateChooser birthday;
@@ -521,6 +540,11 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel gender;
     private javax.swing.JComboBox<String> gendercombobox;
     private javax.swing.JButton homebutt;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -546,13 +570,11 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JTextField papanumber;
     private javax.swing.JLabel papaoccupation;
     private javax.swing.JTextField papaoccupationfield;
-    private javax.swing.JButton profile;
     private javax.swing.JLabel province;
     private javax.swing.JTextField provincefield;
     private javax.swing.JPanel redbar;
     private javax.swing.JLabel residence;
     private javax.swing.JTextField residencefield;
-    private javax.swing.JButton schedule;
     private javax.swing.JLabel schoolg10;
     private javax.swing.JTextField schoolg10field;
     private javax.swing.JLabel schoolidd;

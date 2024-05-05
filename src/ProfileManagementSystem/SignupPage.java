@@ -128,7 +128,9 @@ public class SignupPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Student-Profile SignUp");
+        setMaximumSize(new java.awt.Dimension(1500, 900));
         setMinimumSize(new java.awt.Dimension(1500, 900));
+        setPreferredSize(new java.awt.Dimension(1500, 900));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -157,8 +159,8 @@ public class SignupPage extends javax.swing.JFrame {
 
         //newest pa sa newest
         jPanel1.setBackground(new java.awt.Color(255, 0, 51));
-        jPanel1.setMinimumSize(new java.awt.Dimension(912, 1007));
-        jPanel1.setPreferredSize(new java.awt.Dimension(912, 1007));
+        jPanel1.setMinimumSize(new java.awt.Dimension(898, 1007));
+        jPanel1.setPreferredSize(new java.awt.Dimension(898, 1007));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         NAME1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
@@ -368,7 +370,7 @@ public class SignupPage extends javax.swing.JFrame {
         jLabel2.setMaximumSize(new java.awt.Dimension(1500, 900));
         jLabel2.setMinimumSize(new java.awt.Dimension(1500, 900));
         jLabel2.setPreferredSize(new java.awt.Dimension(1500, 900));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -130, 1760, 1090));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
