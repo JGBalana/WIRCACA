@@ -431,13 +431,13 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
-        Homepagee v = new Homepagee();
+        HomePage v = new HomePage();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton11MouseClicked
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
-        homeadmin v = new homeadmin();
+        AdminHomepage v = new AdminHomepage();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton13MouseClicked

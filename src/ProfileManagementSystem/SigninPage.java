@@ -26,7 +26,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
  * @author geral
  */
 public class SigninPage extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form sigin
      */
@@ -209,7 +209,7 @@ public class SigninPage extends javax.swing.JFrame {
     }//GEN-LAST:event_open1MousePressed
 
     private void SIbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SIbuttonMouseClicked
-        Homepagee x = new Homepagee();
+        HomePage x = new HomePage();
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_SIbuttonMouseClicked
@@ -228,24 +228,22 @@ public class SigninPage extends javax.swing.JFrame {
             if (username.isEmpty() && password.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
             } else {
-                // connect to mysql database and check if username and password is correct from database records
-                // if correct, proceed to homepage
-                // else, prompt user that username or password is incorrect
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/profile_management", "root", "");
-                Statement stmt = con.createStatement();
+        
+                Statement stmt = DbConnection.connect().createStatement();
                 String query = "SELECT * FROM users WHERE username = '" + username + "'";
                 ResultSet rs = stmt.executeQuery(query);
                 if (rs.next()) {
                     if (rs.getString("password").equals(password)) {
 
                         if (rs.getBoolean("is_admin")) {
-                            AdminPage x = new AdminPage();
+                            AdminHomepage x = new AdminHomepage();
                             x.setVisible(true);
                             this.dispose();
                         } else {
                             javax.swing.JOptionPane.showMessageDialog(null, "Welcome " + rs.getString("username") + "!");
-                            Homepagee x = new Homepagee();
+                            HomePage x = new HomePage();
+                            x.studentId = rs.getInt("student_id");
+                            x.loadStudentData();
                             x.setVisible(true);
                             this.dispose();
                         }
@@ -256,7 +254,7 @@ public class SigninPage extends javax.swing.JFrame {
                     javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password");
                 }
             }
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             // if there is an error
             // prompt user that there is an error
             javax.swing.JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());

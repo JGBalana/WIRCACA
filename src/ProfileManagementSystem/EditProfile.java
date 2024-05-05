@@ -406,7 +406,7 @@ public class EditProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        Homepagee v = new Homepagee();
+        HomePage v = new HomePage();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton8MouseClicked
@@ -473,7 +473,7 @@ public class EditProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        Homepagee v = new Homepagee();
+        HomePage v = new HomePage();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton9MouseClicked

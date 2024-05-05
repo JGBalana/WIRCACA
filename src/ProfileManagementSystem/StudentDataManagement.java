@@ -278,7 +278,7 @@ public class StudentDataManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonMouseClicked
 
     private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
-        Homepagee v = new Homepagee();
+        HomePage v = new HomePage();
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton16MouseClicked
@@ -303,7 +303,7 @@ public class StudentDataManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
-        Homepagee v = new Homepagee();
+        HomePage v = new HomePage();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton10MouseClicked

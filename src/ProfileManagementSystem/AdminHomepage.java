@@ -82,6 +82,11 @@ public class AdminHomepage extends javax.swing.JFrame {
                 jButton13MouseClicked(evt);
             }
         });
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 760, -1, -1));
 
         btnStudents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/studentdata (1).png"))); // NOI18N
@@ -149,9 +154,7 @@ public class AdminHomepage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
-        homeadmin v = new homeadmin();
-        v.setVisible (true);
-        this.dispose();
+       
     }//GEN-LAST:event_jButton13MouseClicked
 
     private void btnStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStudentsMouseClicked
@@ -165,6 +168,10 @@ public class AdminHomepage extends javax.swing.JFrame {
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAdminManagerMouseClicked
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments

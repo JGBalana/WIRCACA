@@ -280,7 +280,7 @@ public class FAQs extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        Homepagee v = new Homepagee();
+        HomePage v = new HomePage();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton9MouseClicked

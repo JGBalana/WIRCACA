@@ -411,7 +411,7 @@ public class SignupPage extends javax.swing.JFrame {
     }//GEN-LAST:event_schoolg10fieldActionPerformed
 
     private void btnSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignupMouseClicked
-        Homepagee x = new Homepagee();
+        HomePage x = new HomePage();
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSignupMouseClicked
@@ -503,7 +503,7 @@ public class SignupPage extends javax.swing.JFrame {
                     
                     showMessageDialog(null, "Account created successfully");
 
-                    Homepagee home = new Homepagee();
+                    HomePage home = new HomePage();
                     home.setVisible(true);
                     this.dispose();
                 }

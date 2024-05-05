@@ -5,17 +5,44 @@
  */
 package ProfileManagementSystem;
 
+import ProfileManagementSystem.Entities.Student;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author geral
  */
-public class Homepagee extends javax.swing.JFrame {
+public class HomePage extends javax.swing.JFrame {
+
+    public int studentId;
+    ResultSet rsStudent;
+    Student student;
 
     /**
-     * Creates new form Homepagee
+     * Creates new form HomePage
      */
-    public Homepagee() {
+    public HomePage() {
         initComponents();
+    }
+
+    public void loadStudentData() {
+        try {
+            String sql = "select * from students where id = ?";
+            PreparedStatement st = DbConnection.connect().prepareStatement(sql);
+            st.setInt(1, this.studentId);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                this.rsStudent = rs;
+                student = Student.fromResultSet(rs);
+                lblUser.setText(student.first_name + " " + student.last_name);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(HomePage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -30,7 +57,7 @@ public class Homepagee extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         redbar = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton()
+        btnProfile = new javax.swing.JButton()
         ;
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -41,9 +68,9 @@ public class Homepagee extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        lblUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1500, 900));
         setMinimumSize(new java.awt.Dimension(1500, 900));
         setResizable(false);
 
@@ -70,14 +97,19 @@ public class Homepagee extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/profilee-removebg-preview (1).png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/profilee-removebg-preview (1).png"))); // NOI18N
+        btnProfile.setBorder(null);
+        btnProfile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnProfileMouseClicked(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, 70));
+        btnProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfileActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, 70));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/SCHED-removebg-preview (1).png"))); // NOI18N
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -121,7 +153,7 @@ public class Homepagee extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 70, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 120, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/maroon logo.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 320, -1));
@@ -131,11 +163,14 @@ public class Homepagee extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 24)); // NOI18N
         jLabel4.setText("Welcome to UPHSD-Mol Online Data Portal");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 690, 430, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 680, 570, -1));
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         jLabel5.setText("Open one of the menus on the left-side bar to get started.");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 720, -1, 20));
+
+        lblUser.setText("{User Name}");
+        jPanel1.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(1012, 120, 160, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,40 +188,43 @@ public class Homepagee extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-    SigninPage v = new SigninPage();
-    v.setVisible (true);
-    this.dispose();
+        SigninPage v = new SigninPage();
+        v.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-    Profile v = new Profile();
-    v.setVisible (true);
-    this.dispose();
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void btnProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMouseClicked
+        Profile v = new Profile(student);
+        v.setVisible(true);
+    }//GEN-LAST:event_btnProfileMouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         Schedule v = new Schedule();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         Attendancee1 v = new Attendancee1();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         FAQs v = new FAQs();
-        v.setVisible (true);
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        Homepagee v = new Homepagee();
-        v.setVisible (true);
+        HomePage v = new HomePage();
+        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton9MouseClicked
+
+    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProfileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,27 +243,28 @@ public class Homepagee extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Homepagee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Homepagee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Homepagee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Homepagee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Homepagee().setVisible(true);
+                new HomePage().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnProfile;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
@@ -236,6 +275,7 @@ public class Homepagee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblUser;
     private javax.swing.JPanel redbar;
     // End of variables declaration//GEN-END:variables
 }

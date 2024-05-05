@@ -287,7 +287,7 @@ public class studentdataadmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
-        Homepagee v = new Homepagee();
+        HomePage v = new HomePage();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton10MouseClicked
@@ -299,7 +299,7 @@ public class studentdataadmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
-        homeadmin v = new homeadmin();
+        AdminHomepage v = new AdminHomepage();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton13MouseClicked
