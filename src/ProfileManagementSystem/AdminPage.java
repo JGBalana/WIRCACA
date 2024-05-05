@@ -84,7 +84,6 @@ public class AdminPage extends javax.swing.JFrame {
         ;
         btnAdminManager = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
         redbar = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         showDataTable = new javax.swing.JButton();
@@ -97,15 +96,17 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1500, 900));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(237, 233, 233));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnStudents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/studentdata (1).png"))); // NOI18N
@@ -117,7 +118,7 @@ public class AdminPage extends javax.swing.JFrame {
         });
         jPanel2.add(btnStudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, 60));
 
-        btnAdminManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/adminmanager.png"))); // NOI18N
+        btnAdminManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/BUTTON VARIATIONS PAKYU (3).png"))); // NOI18N
         btnAdminManager.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAdminManagerMouseClicked(evt);
@@ -125,23 +126,14 @@ public class AdminPage extends javax.swing.JFrame {
         });
         jPanel2.add(btnAdminManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 70));
 
-        jButton10.setBackground(new java.awt.Color(204, 204, 204));
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/SHS-updated_logo-removebg-preview (2).png"))); // NOI18N
         jButton10.setBorder(null);
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton10MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
-
-        jButton16.setBackground(new java.awt.Color(204, 204, 204));
-        jButton16.setBorder(null);
-        jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton16MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 130));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
 
@@ -260,6 +252,9 @@ public class AdminPage extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 890, -1));
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/maroon_logo.png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -287,12 +282,6 @@ public class AdminPage extends javax.swing.JFrame {
     private void showDataTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showDataTableMouseClicked
 
     }//GEN-LAST:event_showDataTableMouseClicked
-
-    private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
-        Homepagee v = new Homepagee();
-        v.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton16MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         SigninPage v = new SigninPage();
@@ -405,11 +394,11 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel7;
