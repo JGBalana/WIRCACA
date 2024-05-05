@@ -234,7 +234,7 @@ public class SigninPage extends javax.swing.JFrame {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/profile_management", "root", "");
                 Statement stmt = con.createStatement();
-                String query = "SELECT * FROM students WHERE username = '" + username + "'";
+                String query = "SELECT * FROM users WHERE username = '" + username + "'";
                 ResultSet rs = stmt.executeQuery(query);
                 if (rs.next()) {
                     if (rs.getString("password").equals(password)) {
