@@ -151,7 +151,7 @@ public class homeadmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
-        Homepagee v = new Homepagee();
+        homeadmin v = new homeadmin();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton13MouseClicked
