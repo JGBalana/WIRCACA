@@ -136,14 +136,15 @@ public class AdminPage extends javax.swing.JFrame {
         });
         jPanel2.add(btnAdminManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 70));
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/SHS-updated_logo-removebg-preview (2).png"))); // NOI18N
+        jButton10.setBackground(new java.awt.Color(204, 204, 204));
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/SHSlogo (1).png"))); // NOI18N
         jButton10.setBorder(null);
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton10MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 130));
+        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 730, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 860));
 
@@ -335,12 +336,6 @@ public class AdminPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAdminManagerMouseClicked
 
-    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
-        Homepagee v = new Homepagee();
-        v.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton10MouseClicked
-
     private void showDataTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showDataTableMouseClicked
 
     }//GEN-LAST:event_showDataTableMouseClicked
@@ -416,6 +411,12 @@ public class AdminPage extends javax.swing.JFrame {
         //123 - 2 = 2
         refreshTable();
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        Homepagee v = new Homepagee();
+        v.setVisible (true);
+        this.dispose();
+    }//GEN-LAST:event_jButton10MouseClicked
 
     /**
      * @param args the command line arguments
