@@ -23,6 +23,7 @@ public class HomePage extends javax.swing.JFrame {
 
     public HomePage() {
         initComponents();
+        loadStudentData();
     }
 
     public void loadStudentData() {
@@ -218,6 +219,7 @@ public class HomePage extends javax.swing.JFrame {
     private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
         Profile v = new Profile();
         v.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnProfileActionPerformed
 
     /**
