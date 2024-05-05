@@ -23,13 +23,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class StudentDataManagement extends javax.swing.JFrame {
 
+    Connection conn = DbConnection.connect();
+
     /**
      * Creates new form Students
      */
     public StudentDataManagement() {
 
         initComponents();
-
+        refreshTable();
     }
 
     /**
@@ -114,7 +116,7 @@ public class StudentDataManagement extends javax.swing.JFrame {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         showdata.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 12)); // NOI18N
-        showdata.setText("Show data table");
+        showdata.setText("Refresh");
         showdata.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 showdataMouseClicked(evt);
@@ -125,7 +127,7 @@ public class StudentDataManagement extends javax.swing.JFrame {
                 showdataActionPerformed(evt);
             }
         });
-        jPanel7.add(showdata, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 170, 30));
+        jPanel7.add(showdata, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 100, 30));
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,14 +209,16 @@ public class StudentDataManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9MouseClicked
 
     private void showdataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showdataActionPerformed
+        refreshTable();
+    }//GEN-LAST:event_showdataActionPerformed
+
+    private void refreshTable() {
         // TODO add your handling code here:
         // database connection
-      
+
         try {
             //open connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/profile_management", "root", "");
-            Statement stmt = con.createStatement();
+            Statement stmt = conn.createStatement();
             String query = "SELECT * FROM students";
             ResultSet rs = stmt.executeQuery(query);
             DefaultTableModel tblModel = (DefaultTableModel) studentTable.getModel();
@@ -228,38 +232,36 @@ public class StudentDataManagement extends javax.swing.JFrame {
                 String gender = rs.getString("gender");
                 String birthday = rs.getString("birthday");
                 String strand = rs.getString("strand");
-                 String level = rs.getString("level");
-                 String section = rs.getString("section");
-                 String student_id = rs.getString("school_id");
-                 String contact_info = rs.getString("contact_info");
-                 String email = rs.getString("email");
-                 String g10school = rs.getString("former_school");                 
-                 String permanent_address = rs.getString("permanent_address");
-                 String residence = rs.getString("present_address");
-                 String city = rs.getString("city");
-                 String province = rs.getString("province");
-                 String zipcode = String.valueOf(rs.getInt("zip_code"));
-                 String barangay = rs.getString("barangay");
-                 
+                String level = rs.getString("level");
+                String section = rs.getString("section");
+                String student_id = rs.getString("school_id");
+                String contact_info = rs.getString("contact_info");
+                String email = rs.getString("email");
+                String g10school = rs.getString("former_school");
+                String permanent_address = rs.getString("permanent_address");
+                String residence = rs.getString("present_address");
+                String city = rs.getString("city");
+                String province = rs.getString("province");
+                String zipcode = String.valueOf(rs.getInt("zip_code"));
+                String barangay = rs.getString("barangay");
 
                 String tbData[] = {
-                    id, first_name, middle_name, last_name, age, gender, birthday, strand, 
-                    level, 
+                    id, first_name, middle_name, last_name, age, gender, birthday, strand,
+                    level,
                     section,
-                 student_id, 
-                 contact_info, 
-                 email, 
+                    student_id,
+                    contact_info,
+                    email,
                     g10school, permanent_address, residence, city, province, zipcode, barangay
                 };
-                
 
                 tblModel.addRow(tbData);
             }
 
-            con.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
+
         }
-    }//GEN-LAST:event_showdataActionPerformed
+    }
 
     /**
      * @param args the command line arguments

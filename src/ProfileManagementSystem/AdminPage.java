@@ -76,7 +76,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton()
+        btnStudents = new javax.swing.JButton()
         ;
         btnAdminManager = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -104,13 +104,14 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setBorder(null);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnStudents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/studentdata (1).png"))); // NOI18N
+        btnStudents.setBorder(null);
+        btnStudents.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnStudentsMouseClicked(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, 60));
+        jPanel2.add(btnStudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, 60));
 
         btnAdminManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProfileManagementSystem/photos/adminmanager.png"))); // NOI18N
         btnAdminManager.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -160,7 +161,7 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         showDataTable.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 12)); // NOI18N
-        showDataTable.setText("Show data table");
+        showDataTable.setText("Refresh");
         showDataTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 showDataTableMouseClicked(evt);
@@ -171,7 +172,7 @@ public class AdminPage extends javax.swing.JFrame {
                 showDataTableActionPerformed(evt);
             }
         });
-        jPanel7.add(showDataTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 130, 30));
+        jPanel7.add(showDataTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 90, 30));
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -261,11 +262,11 @@ public class AdminPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        studentdataadmin v = new studentdataadmin();
+    private void btnStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStudentsMouseClicked
+        StudentDataManagement v = new StudentDataManagement();
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_btnStudentsMouseClicked
 
     private void btnAdminManagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminManagerMouseClicked
         AdminPage v = new AdminPage();
@@ -376,11 +377,11 @@ public class AdminPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAdminManager;
+    private javax.swing.JButton btnStudents;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
