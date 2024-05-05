@@ -240,7 +240,7 @@ public class SigninPage extends javax.swing.JFrame {
                     if (rs.getString("password").equals(password)) {
 
                         if (rs.getBoolean("is_admin")) {
-                            ADMIN_PAGE x = new ADMIN_PAGE();
+                            AdminPage x = new AdminPage();
                             x.setVisible(true);
                             this.dispose();
                         } else {

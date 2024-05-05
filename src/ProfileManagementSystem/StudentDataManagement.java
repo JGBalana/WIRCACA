@@ -187,7 +187,7 @@ public class StudentDataManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMouseClicked
-        ADMIN_PAGE v = new ADMIN_PAGE();
+        AdminPage v = new AdminPage();
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonMouseClicked
