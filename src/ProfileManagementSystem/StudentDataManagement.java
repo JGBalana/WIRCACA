@@ -113,6 +113,11 @@ public class StudentDataManagement extends javax.swing.JFrame {
                 jButton10MouseClicked(evt);
             }
         });
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 880));
@@ -310,7 +315,7 @@ public class StudentDataManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
-        HomePage v = new HomePage();
+        AdminHomepage v = new AdminHomepage();
         v.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton10MouseClicked
@@ -320,6 +325,10 @@ public class StudentDataManagement extends javax.swing.JFrame {
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
 
    private void redrawTable() {
         try {
